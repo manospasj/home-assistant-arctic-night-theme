@@ -352,8 +352,6 @@ Arctic Night:
 
   # State & UI
   state-active-color: var(--catppuccin-blue)
-  state-light-off-color: "#838ba7"
-  state-light-inactive-color: "#838ba7"
 
   sidebar-background-color: var(--catppuccin-crust)
   switch-unchecked-color: var(--catppuccin-overlay0)
@@ -361,7 +359,7 @@ Arctic Night:
   switch-unchecked-track-color: var(--switch-unchecked-color)
 
   app-header-text-color: var(--primary-text-color)
-  app-header-background-color: var(--catppuccin-crust)
+  app-header-background-color: "#232634"
 
   # CodeMirror (YAML/template editor)
   codemirror-keyword: var(--catppuccin-blue)
