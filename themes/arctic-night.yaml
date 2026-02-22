@@ -296,7 +296,11 @@ Arctic Night:
   secondary-background-color: var(--catppuccin-mantle)
   clear-background-color: var(--card-background-color)
 
-  label-badge-grey: var(--secondary-text-color)
+  label-badge-red: var(--catppuccin-blue)
+  label-badge-blue: var(--catppuccin-blue)
+  label-badge-green: var(--catppuccin-blue)
+  label-badge-yellow: var(--catppuccin-blue)
+  label-badge-grey: var(--catppuccin-blue)
 
   state-icon-color: var(--primary-color)
 
@@ -352,6 +356,10 @@ Arctic Night:
 
   # State & UI
   state-active-color: var(--catppuccin-blue)
+  state-light-active-color: var(--catppuccin-blue)
+  state-light-inactive-color: var(--disabled-color)
+  state-media_player-active-color: var(--catppuccin-blue)
+  state-media_player-inactive-color: var(--disabled-color)
 
   sidebar-background-color: var(--catppuccin-crust)
   switch-unchecked-color: var(--catppuccin-overlay0)
