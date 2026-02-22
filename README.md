@@ -8,11 +8,11 @@ A sleek, high-contrast dark theme for Home Assistant featuring frost-blue accent
 
 | Color | Hex | Role |
 |-------|-----|------|
-| Base | `#303446` | Card background |
-| Mantle | `#292c3c` | Primary background |
-| Crust | `#232634` | Sidebar / header |
-| Blue | `#8caaee` | Accent / primary |
-| Text | `#c6d0f5` | Primary text |
+| Base | <code>&#35;303446</code> | Card background |
+| Mantle | <code>&#35;292c3c</code> | Primary background |
+| Crust | <code>&#35;232634</code> | Sidebar / header |
+| Blue | <code>&#35;8caaee</code> | Accent / primary |
+| Text | <code>&#35;c6d0f5</code> | Primary text |
 
 ## Installation
 
@@ -41,28 +41,28 @@ A sleek, high-contrast dark theme for Home Assistant featuring frost-blue accent
 
 ## Color Palette
 
-Based on Catppuccin Frappe with **blue** (`#8caaee`) as the primary accent color, giving the UI a frost-blue arctic feel.
+Based on Catppuccin Frappe with **blue** (<code>&#35;8caaee</code>) as the primary accent color, giving the UI a frost-blue arctic feel.
 
 ### Accent & Semantic Colors
 
 | Purpose | Color | Hex |
 |---------|-------|-----|
-| Primary / Accent | Blue | `#8caaee` |
-| Error | Red | `#e78284` |
-| Warning | Yellow | `#e5c890` |
-| Success | Green | `#a6d189` |
-| Info | Blue | `#8caaee` |
+| Primary / Accent | Blue | <code>&#35;8caaee</code> |
+| Error | Red | <code>&#35;e78284</code> |
+| Warning | Yellow | <code>&#35;e5c890</code> |
+| Success | Green | <code>&#35;a6d189</code> |
+| Info | Blue | <code>&#35;8caaee</code> |
 
 ### Surface Colors
 
 | Layer | Color | Hex |
 |-------|-------|-----|
-| Crust (darkest) | Sidebar, header | `#232634` |
-| Mantle | Page background | `#292c3c` |
-| Base | Card background | `#303446` |
-| Surface 0 | Elevated surfaces | `#414559` |
-| Surface 1 | Higher surfaces | `#51576d` |
-| Surface 2 | Highest surfaces | `#626880` |
+| Crust (darkest) | Sidebar, header | <code>&#35;232634</code> |
+| Mantle | Page background | <code>&#35;292c3c</code> |
+| Base | Card background | <code>&#35;303446</code> |
+| Surface 0 | Elevated surfaces | <code>&#35;414559</code> |
+| Surface 1 | Higher surfaces | <code>&#35;51576d</code> |
+| Surface 2 | Highest surfaces | <code>&#35;626880</code> |
 
 ## Credits
 
