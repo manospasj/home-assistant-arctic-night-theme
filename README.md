@@ -8,11 +8,11 @@ A sleek, high-contrast dark theme for Home Assistant featuring frost-blue accent
 
 | Color | Hex | Role |
 |-------|-----|------|
-| Base | <code>&#35;303446</code> | Card background |
-| Mantle | <code>&#35;292c3c</code> | Primary background |
-| Crust | <code>&#35;232634</code> | Sidebar / header |
-| Blue | <code>&#35;8caaee</code> | Accent / primary |
-| Text | <code>&#35;c6d0f5</code> | Primary text |
+| Base | <code>#303446</code> | Card background |
+| Mantle | <code>#292c3c</code> | Primary background |
+| Crust | <code>#232634</code> | Sidebar / header |
+| Blue | <code>#8caaee</code> | Accent / primary |
+| Text | <code>#c6d0f5</code> | Primary text |
 
 ## Installation
 
@@ -41,28 +41,28 @@ A sleek, high-contrast dark theme for Home Assistant featuring frost-blue accent
 
 ## Color Palette
 
-Based on Catppuccin Frappe with **blue** (<code>&#35;8caaee</code>) as the primary accent color, giving the UI a frost-blue arctic feel.
+Based on Catppuccin Frappe with **blue** (<code>#8caaee</code>) as the primary accent color, giving the UI a frost-blue arctic feel.
 
 ### Accent & Semantic Colors
 
 | Purpose | Color | Hex |
 |---------|-------|-----|
-| Primary / Accent | Blue | <code>&#35;8caaee</code> |
-| Error | Red | <code>&#35;e78284</code> |
-| Warning | Yellow | <code>&#35;e5c890</code> |
-| Success | Green | <code>&#35;a6d189</code> |
-| Info | Blue | <code>&#35;8caaee</code> |
+| Primary / Accent | Blue | <code>#8caaee</code> |
+| Error | Red | <code>#e78284</code> |
+| Warning | Yellow | <code>#e5c890</code> |
+| Success | Green | <code>#a6d189</code> |
+| Info | Blue | <code>#8caaee</code> |
 
 ### Surface Colors
 
 | Layer | Color | Hex |
 |-------|-------|-----|
-| Crust (darkest) | Sidebar, header | <code>&#35;232634</code> |
-| Mantle | Page background | <code>&#35;292c3c</code> |
-| Base | Card background | <code>&#35;303446</code> |
-| Surface 0 | Elevated surfaces | <code>&#35;414559</code> |
-| Surface 1 | Higher surfaces | <code>&#35;51576d</code> |
-| Surface 2 | Highest surfaces | <code>&#35;626880</code> |
+| Crust (darkest) | Sidebar, header | <code>#232634</code> |
+| Mantle | Page background | <code>#292c3c</code> |
+| Base | Card background | <code>#303446</code> |
+| Surface 0 | Elevated surfaces | <code>#414559</code> |
+| Surface 1 | Higher surfaces | <code>#51576d</code> |
+| Surface 2 | Highest surfaces | <code>#626880</code> |
 
 ## Credits
 

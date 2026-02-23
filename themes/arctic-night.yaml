@@ -387,7 +387,7 @@ Arctic Night:
   app-header-edit-background-color: var(--catppuccin-surface2)
   app-header-edit-text-color: var(--primary-text-color)
 
-  mdc-ripple-color: '#aaaaaa'
+  mdc-ripple-color: "#aaaaaa"
   mdc-linear-progress-buffer-color: var(--catppuccin-surface1)
 
   # Graph colors
@@ -405,6 +405,54 @@ Arctic Night:
   graph-color-12: var(--catppuccin-rosewater)
   graph-color-13: var(--catppuccin-sapphire)
   graph-color-14: var(--catppuccin-flamingo)
+
+  ########################################
+  # Card state colors (card-mod)        #
+  ########################################
+  # --state-color-{domain}-{state} for background
+  # --state-fg-{domain}-{state} for text/icons
+  # Generic fallbacks: --state-color-{state} / --state-fg-{state}
+
+  # Climate
+  state-color-climate-heat: var(--catppuccin-red)
+  state-fg-climate-heat: var(--card-background-color)
+  state-color-climate-cool: var(--catppuccin-blue)
+  state-fg-climate-cool: var(--card-background-color)
+  state-color-climate-dry: var(--catppuccin-yellow)
+  state-fg-climate-dry: var(--card-background-color)
+  state-color-climate-fan_only: var(--catppuccin-teal)
+  state-fg-climate-fan_only: var(--card-background-color)
+  state-color-climate-heat_cool: var(--catppuccin-peach)
+  state-fg-climate-heat_cool: var(--card-background-color)
+  state-color-climate-auto: var(--catppuccin-green)
+  state-fg-climate-auto: var(--card-background-color)
+
+  # Vacuum
+  state-color-vacuum-cleaning: var(--catppuccin-blue)
+  state-fg-vacuum-cleaning: var(--card-background-color)
+  state-color-vacuum-returning: var(--catppuccin-teal)
+  state-fg-vacuum-returning: var(--card-background-color)
+  state-color-vacuum-paused: var(--catppuccin-yellow)
+  state-fg-vacuum-paused: var(--card-background-color)
+  state-color-vacuum-error: var(--catppuccin-red)
+  state-fg-vacuum-error: var(--card-background-color)
+
+  # Generic (any domain)
+  state-color-on: var(--catppuccin-blue)
+  state-fg-on: var(--card-background-color)
+
+  # Card-mod theme styles
+  card-mod-card-yaml: |
+    ha-card {
+      {% if config.type == 'button' and config.entity %}
+        {% set domain = config.entity.split('.')[0] %}
+        {% set state = states(config.entity) %}
+        background-color: var(--state-color-{{ domain }}-{{ state }}, var(--state-color-{{ state }}));
+        color: var(--state-fg-{{ domain }}-{{ state }}, var(--state-fg-{{ state }}));
+        --card-mod-icon-color: var(--state-fg-{{ domain }}-{{ state }}, var(--state-fg-{{ state }}));
+        --secondary-text-color: var(--state-fg-{{ domain }}-{{ state }}, var(--state-fg-{{ state }}));
+      {% endif %}
+    }
 
   modes:
     dark: {}
