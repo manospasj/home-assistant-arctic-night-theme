@@ -407,39 +407,39 @@ Arctic Night:
   graph-color-14: var(--catppuccin-flamingo)
 
   ########################################
-  # Card state colors (card-mod)        #
+  # Button card colors (card-mod)       #
   ########################################
-  # --state-color-{domain}-{state} for background
-  # --state-fg-{domain}-{state} for text/icons
-  # Generic fallbacks: --state-color-{state} / --state-fg-{state}
+  # --card-button-background-{domain}-{state} for background
+  # --card-button-foreground-{domain}-{state} for text/icons
+  # Generic fallbacks: --card-button-background-{state} / --card-button-foreground-{state}
 
   # Climate
-  state-color-climate-heat: var(--catppuccin-red)
-  state-fg-climate-heat: var(--card-background-color)
-  state-color-climate-cool: var(--catppuccin-blue)
-  state-fg-climate-cool: var(--card-background-color)
-  state-color-climate-dry: var(--catppuccin-yellow)
-  state-fg-climate-dry: var(--card-background-color)
-  state-color-climate-fan_only: var(--catppuccin-teal)
-  state-fg-climate-fan_only: var(--card-background-color)
-  state-color-climate-heat_cool: var(--catppuccin-peach)
-  state-fg-climate-heat_cool: var(--card-background-color)
-  state-color-climate-auto: var(--catppuccin-green)
-  state-fg-climate-auto: var(--card-background-color)
+  card-button-background-climate-heat: var(--catppuccin-maroon)
+  card-button-foreground-climate-heat: var(--catppuccin-crust)
+  card-button-background-climate-cool: var(--catppuccin-blue)
+  card-button-foreground-climate-cool: var(--catppuccin-crust)
+  card-button-background-climate-dry: var(--catppuccin-peach)
+  card-button-foreground-climate-dry: var(--catppuccin-crust)
+  card-button-background-climate-fan_only: var(--catppuccin-teal)
+  card-button-foreground-climate-fan_only: var(--catppuccin-crust)
+  card-button-background-climate-heat_cool: var(--catppuccin-yellow)
+  card-button-foreground-climate-heat_cool: var(--catppuccin-crust)
+  card-button-background-climate-auto: var(--catppuccin-green)
+  card-button-foreground-climate-auto: var(--catppuccin-crust)
 
   # Vacuum
-  state-color-vacuum-cleaning: var(--catppuccin-blue)
-  state-fg-vacuum-cleaning: var(--card-background-color)
-  state-color-vacuum-returning: var(--catppuccin-teal)
-  state-fg-vacuum-returning: var(--card-background-color)
-  state-color-vacuum-paused: var(--catppuccin-yellow)
-  state-fg-vacuum-paused: var(--card-background-color)
-  state-color-vacuum-error: var(--catppuccin-red)
-  state-fg-vacuum-error: var(--card-background-color)
+  card-button-background-vacuum-cleaning: var(--catppuccin-blue)
+  card-button-foreground-vacuum-cleaning: var(--catppuccin-crust)
+  card-button-background-vacuum-returning: var(--catppuccin-teal)
+  card-button-foreground-vacuum-returning: var(--catppuccin-crust)
+  card-button-background-vacuum-paused: var(--catppuccin-yellow)
+  card-button-foreground-vacuum-paused: var(--catppuccin-crust)
+  card-button-background-vacuum-error: var(--catppuccin-red)
+  card-button-foreground-vacuum-error: var(--catppuccin-crust)
 
   # Generic (any domain)
-  state-color-on: var(--catppuccin-blue)
-  state-fg-on: var(--card-background-color)
+  card-button-background-on: var(--catppuccin-blue)
+  card-button-foreground-on: var(--catppuccin-crust)
 
   # Card-mod theme styles
   card-mod-theme: Arctic Night
@@ -449,11 +449,15 @@ Arctic Night:
         {% if config.type == 'button' and config.entity %}
           {% set domain = config.entity.split('.')[0] %}
           {% set state = states(config.entity) %}
-          background-color: var(--state-color-{{ domain }}-{{ state }}, var(--state-color-{{ state }}, var(--ha-card-background, var(--card-background-color))));
-          color: var(--state-fg-{{ domain }}-{{ state }}, var(--state-fg-{{ state }}, var(--primary-text-color)));
-          --card-mod-icon-color: var(--state-fg-{{ domain }}-{{ state }}, var(--state-fg-{{ state }}, var(--primary-color)));
-          --secondary-text-color: var(--state-fg-{{ domain }}-{{ state }}, var(--state-fg-{{ state }}, var(--ha-color-text-secondary)));
+          background-color: var(--card-button-background-{{ domain }}-{{ state }}, var(--card-button-background-{{ state }}, var(--ha-card-background, var(--card-background-color))));
+          color: var(--card-button-foreground-{{ domain }}-{{ state }}, var(--card-button-foreground-{{ state }}, var(--primary-text-color)));
+          --card-mod-icon-color: var(--card-button-foreground-{{ domain }}-{{ state }}, var(--card-button-foreground-{{ state }}, var(--primary-color)));
+          --secondary-text-color: var(--card-button-foreground-{{ domain }}-{{ state }}, var(--card-button-foreground-{{ state }}, var(--ha-color-text-secondary)));
         {% endif %}
+      }
+      .card-header {
+        font-size: 16px;
+        font-weight: 500;
       }
 
   modes:
