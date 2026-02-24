@@ -442,17 +442,19 @@ Arctic Night:
   state-fg-on: var(--card-background-color)
 
   # Card-mod theme styles
+  card-mod-theme: Arctic Night
   card-mod-card-yaml: |
-    ha-card {
-      {% if config.type == 'button' and config.entity %}
-        {% set domain = config.entity.split('.')[0] %}
-        {% set state = states(config.entity) %}
-        background-color: var(--state-color-{{ domain }}-{{ state }}, var(--state-color-{{ state }}));
-        color: var(--state-fg-{{ domain }}-{{ state }}, var(--state-fg-{{ state }}));
-        --card-mod-icon-color: var(--state-fg-{{ domain }}-{{ state }}, var(--state-fg-{{ state }}));
-        --secondary-text-color: var(--state-fg-{{ domain }}-{{ state }}, var(--state-fg-{{ state }}));
-      {% endif %}
-    }
+    style: |
+      ha-card {
+        {% if config.type == 'button' and config.entity %}
+          {% set domain = config.entity.split('.')[0] %}
+          {% set state = states(config.entity) %}
+          background-color: var(--state-color-{{ domain }}-{{ state }}, var(--state-color-{{ state }}, var(--ha-card-background, var(--card-background-color))));
+          color: var(--state-fg-{{ domain }}-{{ state }}, var(--state-fg-{{ state }}, var(--primary-text-color)));
+          --card-mod-icon-color: var(--state-fg-{{ domain }}-{{ state }}, var(--state-fg-{{ state }}, var(--primary-color)));
+          --secondary-text-color: var(--state-fg-{{ domain }}-{{ state }}, var(--state-fg-{{ state }}, var(--ha-color-text-secondary)));
+        {% endif %}
+      }
 
   modes:
     dark: {}
