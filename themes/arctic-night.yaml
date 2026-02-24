@@ -459,6 +459,23 @@ Arctic Night:
         font-size: 16px;
         font-weight: 500;
       }
+      ha-tile-icon[data-domain="person"] {
+        border-radius: 50%;
+        padding: 0;
+        margin: 0;
+      }
+      ha-tile-icon[data-domain="person"][data-state="home"] {
+        border: 2px solid var(--catppuccin-teal);
+      }
+      ha-tile-icon[data-domain="person"][data-state="not_home"] {
+        border: 2px solid var(--catppuccin-peach);
+      }
+      ha-tile-icon[data-domain="person"] ha-svg-icon {
+        display: none;
+      }
+      ha-tile-icon[data-domain="person"] ha-tile-badge {
+        display: none;
+      }
 
   modes:
     dark: {}
