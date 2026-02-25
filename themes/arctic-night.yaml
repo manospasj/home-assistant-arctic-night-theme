@@ -461,7 +461,7 @@ Arctic Night:
       }
       ha-tile-icon[data-domain="person"] {
         border-radius: 50%;
-        padding: 0;
+        padding: 2px;
         margin: 0;
       }
       ha-tile-icon[data-domain="person"][data-state="home"] {
