@@ -406,13 +406,6 @@ Arctic Night:
   graph-color-13: var(--catppuccin-sapphire)
   graph-color-14: var(--catppuccin-flamingo)
 
-  ########################################
-  # Button card colors (card-mod)       #
-  ########################################
-  # --card-button-background-{domain}-{state} for background
-  # --card-button-foreground-{domain}-{state} for text/icons
-  # Generic fallbacks: --card-button-background-{state} / --card-button-foreground-{state}
-
   # Climate
   card-button-background-climate-heat: var(--catppuccin-maroon)
   card-button-foreground-climate-heat: var(--catppuccin-crust)
@@ -441,20 +434,26 @@ Arctic Night:
   card-button-background-on: var(--catppuccin-blue)
   card-button-foreground-on: var(--catppuccin-crust)
 
+  # Person
+  card-person-border-home: var(--catppuccin-teal)
+  card-person-border-not_home: var(--catppuccin-peach)
+
   # Card-mod theme styles
   card-mod-theme: Arctic Night
   card-mod-card-yaml: |
     style: |
-      ha-card {
-        {% if config.type == 'button' and config.entity %}
-          {% set domain = config.entity.split('.')[0] %}
-          {% set state = states(config.entity) %}
-          background-color: var(--card-button-background-{{ domain }}-{{ state }}, var(--card-button-background-{{ state }}, var(--ha-card-background, var(--card-background-color))));
-          color: var(--card-button-foreground-{{ domain }}-{{ state }}, var(--card-button-foreground-{{ state }}, var(--primary-text-color)));
-          --card-mod-icon-color: var(--card-button-foreground-{{ domain }}-{{ state }}, var(--card-button-foreground-{{ state }}, var(--primary-color)));
-          --secondary-text-color: var(--card-button-foreground-{{ domain }}-{{ state }}, var(--card-button-foreground-{{ state }}, var(--ha-color-text-secondary)));
-        {% endif %}
-      }
+      {% if config.type == 'button' and config.entity %}
+        {% set domain = config.entity.split('.')[0] %}
+        {% set state = states(config.entity) %}
+        ha-card {
+            background-color: var(--card-button-background-{{ domain }}-{{ state }}, var(--card-button-background-{{ state }}, var(--ha-card-background, var(--card-background-color))));
+            color: var(--card-button-foreground-{{ domain }}-{{ state }}, var(--card-button-foreground-{{ state }}, var(--primary-text-color)));
+            --secondary-text-color: var(--card-button-foreground-{{ domain }}-{{ state }}, var(--card-button-foreground-{{ state }}, var(--ha-color-text-secondary)));
+        }
+        ha-state-icon[data-domain="{{ domain }}"][data-state="{{ state }}"] {
+          --state-color: var(--card-button-foreground-{{ domain }}-{{ state }}, var(--card-button-foreground-{{ state }}, var(--state-icon-color))) !important;
+        }
+      {% endif %}
       .card-header {
         font-size: 16px;
         font-weight: 500;
@@ -465,10 +464,10 @@ Arctic Night:
         margin: 0;
       }
       ha-tile-icon[data-domain="person"][data-state="home"] {
-        border: 2px solid var(--catppuccin-teal);
+        border: 2px solid var(--card-person-border-home);
       }
       ha-tile-icon[data-domain="person"][data-state="not_home"] {
-        border: 2px solid var(--catppuccin-peach);
+        border: 2px solid var(--card-person-border-not_home);
       }
       ha-tile-icon[data-domain="person"] ha-svg-icon {
         display: none;
