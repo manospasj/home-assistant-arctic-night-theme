@@ -34,6 +34,10 @@ A sleek, high-contrast dark theme for Home Assistant featuring frost-blue accent
    ```
 3. Restart Home Assistant
 
+### Dependencies
+
+This theme requires [card-mod](https://github.com/thomasloven/lovelace-card-mod) for full styling support. Install it via HACS by searching for "card-mod".
+
 ### Activating the theme
 
 - **Per user**: Go to your **Profile** (bottom left in the sidebar) and select **Arctic Night** under **Theme**

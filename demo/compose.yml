@@ -1,0 +1,19 @@
+services:
+  home-assistant:
+    image: ghcr.io/home-assistant/home-assistant:2026.2
+    restart: unless-stopped
+    entrypoint: /bin/bash
+    command:
+      - -c
+      - |
+        mkdir -p /config/www
+        [ -f /config/www/card-mod.js ] || wget -q -O /config/www/card-mod.js \
+          'https://raw.githubusercontent.com/thomasloven/lovelace-card-mod/v4.2.1/card-mod.js'
+        DB_PATH=/config/home-assistant_v2.db python3 /config/seed.py &
+        exec /init
+    volumes:
+      - ./config:/config
+      - ../themes:/config/themes
+      - ./seed.py:/config/seed.py:ro
+    ports:
+      - "8123:8123"

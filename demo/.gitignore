@@ -1,0 +1,15 @@
+# Ignore everything in config
+/config/**/*
+
+# Except a few specific config files
+!/config/configuration.yaml
+!/config/.storage/auth_provider.homeassistant
+!/config/.storage/lovelace.lovelace
+!/config/.storage/onboarding
+!/config/.storage/frontend_theme
+!/config/.storage/frontend.system_data
+!/config/.storage/lovelace_dashboards
+!/config/.storage/lovelace_resources
+
+# Even though they are in a subdirectory
+!*/

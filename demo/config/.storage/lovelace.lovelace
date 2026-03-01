@@ -1,0 +1,412 @@
+{
+  "version": 1,
+  "minor_version": 1,
+  "key": "lovelace.lovelace",
+  "data": {
+    "config": {
+      "views": [
+        {
+          "title": "Home",
+          "path": "home",
+          "icon": "mdi:home-outline",
+          "type": "sections",
+          "max_columns": 4,
+          "cards": [],
+          "sections": [
+            {
+              "type": "grid",
+              "cards": [
+                {
+                  "type": "heading",
+                  "heading": "Climate",
+                  "heading_style": "title",
+                  "icon": "mdi:home-thermometer"
+                },
+                {
+                  "graph": "line",
+                  "type": "sensor",
+                  "entity": "sensor.outside_temperature",
+                  "detail": 1,
+                  "name": "Temperature"
+                },
+                {
+                  "graph": "line",
+                  "type": "sensor",
+                  "entity": "sensor.outside_humidity",
+                  "detail": 2,
+                  "name": "Humidity"
+                },
+                {
+                  "show_name": true,
+                  "show_icon": true,
+                  "type": "button",
+                  "entity": "climate.hvac",
+                  "name": "HVAC",
+                  "icon": "mdi:air-conditioner",
+                  "icon_height": "24px",
+                  "tap_action": {
+                    "action": "more-info"
+                  },
+                  "hold_action": {
+                    "action": "none"
+                  },
+                  "show_state": true
+                },
+                {
+                  "show_name": true,
+                  "show_icon": true,
+                  "type": "button",
+                  "entity": "climate.heatpump",
+                  "name": "Heat Pump",
+                  "icon": "mdi:air-conditioner",
+                  "icon_height": "24px",
+                  "tap_action": {
+                    "action": "more-info"
+                  },
+                  "hold_action": {
+                    "action": "none"
+                  },
+                  "show_state": true
+                },
+                {
+                  "show_name": true,
+                  "show_icon": true,
+                  "type": "button",
+                  "entity": "climate.ecobee",
+                  "name": "Ecobee",
+                  "icon": "mdi:air-conditioner",
+                  "icon_height": "24px",
+                  "tap_action": {
+                    "action": "more-info"
+                  },
+                  "hold_action": {
+                    "action": "none"
+                  },
+                  "show_state": true
+                },
+                {
+                  "show_name": true,
+                  "show_icon": true,
+                  "type": "button",
+                  "entity": "humidifier.dehumidifier",
+                  "icon": "mdi:air-humidifier",
+                  "icon_height": "24px",
+                  "tap_action": {
+                    "action": "toggle"
+                  },
+                  "hold_action": {
+                    "action": "none"
+                  },
+                  "show_state": true
+                }
+              ]
+            },
+            {
+              "type": "grid",
+              "cards": [
+                {
+                  "type": "heading",
+                  "heading": "Lights",
+                  "heading_style": "title",
+                  "icon": "mdi:floor-lamp"
+                },
+                {
+                  "type": "tile",
+                  "entity": "light.bed_light",
+                  "name": "Bed Light",
+                  "icon": "mdi:lightbulb",
+                  "color": "primary",
+                  "vertical": false,
+                  "tap_action": {
+                    "action": "toggle"
+                  },
+                  "features": [
+                    {
+                      "type": "light-brightness"
+                    }
+                  ],
+                  "features_position": "inline",
+                  "grid_options": {
+                    "columns": 12,
+                    "rows": 1
+                  }
+                },
+                {
+                  "type": "tile",
+                  "entity": "light.ceiling_lights",
+                  "name": "Ceiling Lights",
+                  "icon": "mdi:lightbulb",
+                  "color": "primary",
+                  "vertical": false,
+                  "tap_action": {
+                    "action": "toggle"
+                  },
+                  "features": [
+                    {
+                      "type": "light-brightness"
+                    }
+                  ],
+                  "features_position": "inline",
+                  "grid_options": {
+                    "columns": 12,
+                    "rows": 1
+                  }
+                },
+                {
+                  "type": "tile",
+                  "entity": "light.kitchen_lights",
+                  "name": "Kitchen Lights",
+                  "icon": "mdi:lightbulb",
+                  "color": "primary",
+                  "vertical": false,
+                  "tap_action": {
+                    "action": "toggle"
+                  },
+                  "features": [
+                    {
+                      "type": "light-brightness"
+                    }
+                  ],
+                  "features_position": "inline",
+                  "grid_options": {
+                    "columns": 12,
+                    "rows": 1
+                  }
+                },
+                {
+                  "type": "tile",
+                  "entity": "switch.decorative_lights",
+                  "name": "Decorative Lights",
+                  "icon": "mdi:lightbulb",
+                  "color": "primary",
+                  "vertical": false,
+                  "tap_action": {
+                    "action": "toggle"
+                  },
+                  "features_position": "bottom"
+                },
+                {
+                  "type": "heading",
+                  "heading": "Media",
+                  "heading_style": "title",
+                  "icon": "mdi:music"
+                },
+                {
+                  "type": "tile",
+                  "entity": "media_player.living_room",
+                  "color": "primary",
+                  "vertical": false,
+                  "tap_action": {
+                    "action": "toggle"
+                  },
+                  "features": [
+                    {
+                      "type": "media-player-volume-slider"
+                    }
+                  ],
+                  "features_position": "inline",
+                  "grid_options": {
+                    "columns": 12,
+                    "rows": 1
+                  }
+                }
+              ]
+            },
+            {
+              "type": "grid",
+              "cards": [
+                {
+                  "type": "heading",
+                  "heading": "Housekeeping",
+                  "heading_style": "title",
+                  "icon": "mdi:broom"
+                },
+                {
+                  "show_name": true,
+                  "show_icon": true,
+                  "type": "button",
+                  "entity": "vacuum.demo_vacuum_0_ground_floor",
+                  "icon_height": "24px",
+                  "hold_action": {
+                    "action": "none"
+                  },
+                  "show_state": true,
+                  "name": "Vacuum"
+                },
+                {
+                  "show_name": true,
+                  "show_icon": true,
+                  "type": "button",
+                  "entity": "fan.living_room_fan",
+                  "name": "Living Room Fan",
+                  "icon_height": "24px",
+                  "tap_action": {
+                    "action": "toggle"
+                  },
+                  "hold_action": {
+                    "action": "none"
+                  },
+                  "show_state": true
+                }
+              ]
+            },
+            {
+              "type": "grid",
+              "cards": [
+                {
+                  "type": "heading",
+                  "heading": "Security",
+                  "heading_style": "title",
+                  "icon": "mdi:shield-home"
+                },
+                {
+                  "show_name": true,
+                  "show_icon": true,
+                  "type": "button",
+                  "entity": "lock.front_door",
+                  "name": "Front Door",
+                  "icon_height": "24px",
+                  "tap_action": {
+                    "action": "toggle"
+                  },
+                  "hold_action": {
+                    "action": "none"
+                  },
+                  "show_state": true
+                },
+                {
+                  "show_name": true,
+                  "show_icon": true,
+                  "type": "button",
+                  "entity": "lock.kitchen_door",
+                  "name": "Kitchen Door",
+                  "icon_height": "24px",
+                  "tap_action": {
+                    "action": "toggle"
+                  },
+                  "hold_action": {
+                    "action": "none"
+                  },
+                  "show_state": true
+                },
+                {
+                  "show_name": true,
+                  "show_icon": true,
+                  "type": "button",
+                  "entity": "cover.garage_door",
+                  "name": "Garage Door",
+                  "icon_height": "24px",
+                  "tap_action": {
+                    "action": "toggle"
+                  },
+                  "hold_action": {
+                    "action": "none"
+                  },
+                  "show_state": true
+                },
+                {
+                  "show_name": true,
+                  "show_icon": true,
+                  "type": "button",
+                  "entity": "cover.hall_window",
+                  "name": "Hall Window",
+                  "icon": "mdi:blinds",
+                  "icon_height": "24px",
+                  "tap_action": {
+                    "action": "toggle"
+                  },
+                  "hold_action": {
+                    "action": "none"
+                  },
+                  "show_state": true
+                },
+                {
+                  "type": "tile",
+                  "entity": "binary_sensor.movement_backyard",
+                  "name": "Backyard Motion",
+                  "vertical": false,
+                  "features_position": "bottom"
+                }
+              ]
+            },
+            {
+              "type": "grid",
+              "cards": [
+                {
+                  "type": "heading",
+                  "heading": "Weather",
+                  "heading_style": "title",
+                  "icon": "mdi:weather-partly-cloudy"
+                },
+                {
+                  "show_current": true,
+                  "show_forecast": true,
+                  "type": "weather-forecast",
+                  "entity": "weather.demo_weather_south",
+                  "forecast_type": "daily"
+                },
+                {
+                  "type": "heading",
+                  "heading": "Sensors",
+                  "heading_style": "title",
+                  "icon": "mdi:chart-areaspline"
+                },
+                {
+                  "type": "gauge",
+                  "entity": "sensor.outside_temperature",
+                  "name": "Temperature",
+                  "min": 10,
+                  "max": 40,
+                  "needle": true,
+                  "severity": {
+                    "green": 18,
+                    "yellow": 26,
+                    "red": 32
+                  }
+                },
+                {
+                  "type": "gauge",
+                  "entity": "sensor.outside_humidity",
+                  "name": "Humidity",
+                  "min": 0,
+                  "max": 100,
+                  "needle": true,
+                  "severity": {
+                    "green": 30,
+                    "yellow": 60,
+                    "red": 80
+                  }
+                },
+                {
+                  "type": "history-graph",
+                  "entities": [
+                    {
+                      "entity": "sensor.outside_temperature",
+                      "name": "Temperature"
+                    },
+                    {
+                      "entity": "sensor.outside_humidity",
+                      "name": "Humidity"
+                    }
+                  ],
+                  "hours_to_show": 24
+                }
+              ]
+            }
+          ],
+          "badges": [
+            {
+              "type": "entity",
+              "show_name": true,
+              "show_state": true,
+              "show_icon": true,
+              "entity": "binary_sensor.movement_backyard",
+              "name": "Backyard Motion",
+              "color": "primary"
+            }
+          ]
+        }
+      ]
+    }
+  }
+}
