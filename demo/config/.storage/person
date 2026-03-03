@@ -1,0 +1,23 @@
+{
+  "version": 2,
+  "minor_version": 1,
+  "key": "person",
+  "data": {
+    "items": [
+      {
+        "id": "john_doe",
+        "user_id": "fdddb250f0c64d96aa4b951e33ba5a15",
+        "name": "John Doe",
+        "picture": "/local/John.jpg",
+        "device_trackers": ["device_tracker.john_doe_tracker"]
+      },
+      {
+        "id": "jane_doe",
+        "user_id": null,
+        "name": "Jane Doe",
+        "picture": "/local/Jane.jpg",
+        "device_trackers": ["device_tracker.jane_doe_tracker"]
+      }
+    ]
+  }
+}

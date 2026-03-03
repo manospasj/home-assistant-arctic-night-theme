@@ -1,0 +1,147 @@
+{
+  "version": 1,
+  "minor_version": 1,
+  "key": "trace.saved_traces",
+  "data": {
+    "automation.None": [
+      {
+        "extended_dict": {
+          "last_step": "action/1",
+          "run_id": "b62c10e0474d88d98df8a275fc82c931",
+          "state": "running",
+          "script_execution": null,
+          "timestamp": {
+            "start": "2026-03-03T21:25:25.571903+00:00",
+            "finish": null
+          },
+          "domain": "automation",
+          "item_id": "None",
+          "trigger": "Home Assistant starting",
+          "trace": {
+            "trigger/0": [
+              {
+                "path": "trigger/0",
+                "timestamp": "2026-03-03T21:25:25.571941+00:00",
+                "changed_variables": {
+                  "this": {
+                    "entity_id": "automation.set_demo_person_locations",
+                    "state": "on",
+                    "attributes": {
+                      "last_triggered": null,
+                      "mode": "single",
+                      "current": 0,
+                      "friendly_name": "Set demo person locations"
+                    },
+                    "last_changed": "2026-03-03T21:25:25.264309+00:00",
+                    "last_reported": "2026-03-03T21:25:25.264309+00:00",
+                    "last_updated": "2026-03-03T21:25:25.264309+00:00",
+                    "context": {
+                      "id": "01KJTSETMGFRHSNV0Z4JY4WV9V",
+                      "parent_id": null,
+                      "user_id": null
+                    }
+                  },
+                  "trigger": {
+                    "id": "0",
+                    "idx": "0",
+                    "alias": null,
+                    "platform": "homeassistant",
+                    "event": "start",
+                    "description": "Home Assistant starting"
+                  }
+                }
+              }
+            ],
+            "action/0": [
+              {
+                "path": "action/0",
+                "timestamp": "2026-03-03T21:25:25.572138+00:00",
+                "changed_variables": {
+                  "context": {
+                    "id": "01KJTSETY3MYAJVTQW7QKEVWAE",
+                    "parent_id": null,
+                    "user_id": null
+                  }
+                },
+                "result": {
+                  "params": {
+                    "domain": "device_tracker",
+                    "service": "see",
+                    "service_data": {
+                      "dev_id": "john_doe_tracker",
+                      "location_name": "home"
+                    },
+                    "target": {}
+                  },
+                  "running_script": false
+                }
+              }
+            ],
+            "action/1": [
+              {
+                "path": "action/1",
+                "timestamp": "2026-03-03T21:25:25.572585+00:00",
+                "result": {
+                  "params": {
+                    "domain": "device_tracker",
+                    "service": "see",
+                    "service_data": {
+                      "dev_id": "jane_doe_tracker",
+                      "location_name": "not_home"
+                    },
+                    "target": {}
+                  },
+                  "running_script": false
+                }
+              }
+            ]
+          },
+          "config": {
+            "alias": "Set demo person locations",
+            "trigger": [
+              {
+                "platform": "homeassistant",
+                "event": "start"
+              }
+            ],
+            "action": [
+              {
+                "data": {
+                  "dev_id": "john_doe_tracker",
+                  "location_name": "home"
+                },
+                "action": "device_tracker.see"
+              },
+              {
+                "data": {
+                  "dev_id": "jane_doe_tracker",
+                  "location_name": "not_home"
+                },
+                "action": "device_tracker.see"
+              }
+            ]
+          },
+          "blueprint_inputs": null,
+          "context": {
+            "id": "01KJTSETY3MYAJVTQW7QKEVWAE",
+            "parent_id": null,
+            "user_id": null
+          }
+        },
+        "short_dict": {
+          "last_step": "action/1",
+          "run_id": "b62c10e0474d88d98df8a275fc82c931",
+          "state": "running",
+          "script_execution": null,
+          "timestamp": {
+            "start": "2026-03-03T21:25:25.571903+00:00",
+            "finish": null
+          },
+          "domain": "automation",
+          "item_id": "None",
+          "trigger": "Home Assistant starting"
+        }
+      }
+    ]
+  }
+}

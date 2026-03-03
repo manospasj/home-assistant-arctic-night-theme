@@ -6,3 +6,63 @@ frontend:
   themes: !include_dir_merge_named themes
 
 demo:
+
+alarm_control_panel:
+  - platform: manual
+    name: Area 001
+    code: "1234"
+
+template:
+  - sensor:
+      - name: "Living Room Temperature"
+        unit_of_measurement: "°C"
+        device_class: temperature
+        state: "{{ state_attr('climate.living_room_ac', 'current_temperature') }}"
+      - name: "Bedroom Temperature"
+        unit_of_measurement: "°C"
+        device_class: temperature
+        state: "{{ state_attr('climate.bedroom_ac', 'current_temperature') }}"
+      - name: "Living Room Humidity"
+        unit_of_measurement: "%"
+        device_class: humidity
+        state: "{{ state_attr('climate.living_room_ac', 'current_humidity') | default(45, true) }}"
+      - name: "Bedroom Humidity"
+        unit_of_measurement: "%"
+        device_class: humidity
+        state: "{{ state_attr('climate.bedroom_ac', 'current_humidity') | default(52, true) }}"
+
+automation:
+  - alias: "Set demo person locations"
+    trigger:
+      - platform: homeassistant
+        event: start
+    action:
+      - service: device_tracker.see
+        data:
+          dev_id: john_doe_tracker
+          location_name: home
+          gps:
+            - 32.8328
+            - -117.2713
+          gps_accuracy: 10
+      - service: device_tracker.see
+        data:
+          dev_id: jane_doe_tracker
+          location_name: not_home
+          gps:
+            - 32.8450
+            - -117.2530
+          gps_accuracy: 50
+      - service: climate.turn_off
+        target:
+          entity_id:
+            - climate.heatpump
+            - climate.living_room_ac
+            - climate.bedroom_ac
+      - service: media_player.volume_set
+        target:
+          entity_id:
+            - media_player.living_room
+            - media_player.bedroom
+        data:
+          volume_level: 0.2

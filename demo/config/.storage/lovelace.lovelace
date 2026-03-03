@@ -18,9 +18,16 @@
               "show_name": true,
               "show_state": true,
               "show_icon": true,
-              "entity": "person.demo",
-              "name": "Demo User",
-              "color": "primary"
+              "entity": "person.john_doe",
+              "name": "John Doe"
+            },
+            {
+              "type": "entity",
+              "show_name": true,
+              "show_state": true,
+              "show_icon": true,
+              "entity": "person.jane_doe",
+              "name": "Jane Doe"
             },
             {
               "type": "entity",
@@ -28,8 +35,7 @@
               "show_state": true,
               "show_icon": true,
               "entity": "binary_sensor.movement_backyard",
-              "name": "Backyard Motion",
-              "color": "primary"
+              "name": "Backyard Motion"
             }
           ],
           "sections": [
@@ -51,12 +57,12 @@
                   "title": "Quick Overview",
                   "entities": [
                     {
-                      "entity": "sensor.outside_temperature",
-                      "name": "Temp"
+                      "entity": "sensor.living_room_temperature",
+                      "name": "Living Room"
                     },
                     {
-                      "entity": "sensor.outside_humidity",
-                      "name": "Humidity"
+                      "entity": "sensor.bedroom_temperature",
+                      "name": "Bedroom"
                     },
                     {
                       "entity": "weather.demo_weather_south",
@@ -67,8 +73,8 @@
                       "name": "Ceiling"
                     },
                     {
-                      "entity": "climate.hvac",
-                      "name": "HVAC"
+                      "entity": "climate.heatpump",
+                      "name": "Heat Pump"
                     }
                   ]
                 }
@@ -89,20 +95,6 @@
                   "type": "weather-forecast",
                   "entity": "weather.demo_weather_south",
                   "forecast_type": "daily"
-                },
-                {
-                  "graph": "line",
-                  "type": "sensor",
-                  "entity": "sensor.outside_temperature",
-                  "detail": 1,
-                  "name": "Temperature"
-                },
-                {
-                  "graph": "line",
-                  "type": "sensor",
-                  "entity": "sensor.outside_humidity",
-                  "detail": 2,
-                  "name": "Humidity"
                 }
               ]
             },
@@ -164,9 +156,9 @@
                   "show_name": true,
                   "show_icon": true,
                   "type": "button",
-                  "entity": "climate.hvac",
-                  "name": "HVAC",
-                  "icon": "mdi:air-conditioner",
+                  "entity": "climate.heatpump",
+                  "name": "Heat Pump",
+                  "icon": "mdi:heat-pump",
                   "icon_height": "24px",
                   "tap_action": {
                     "action": "more-info"
@@ -175,22 +167,91 @@
                     "action": "none"
                   },
                   "show_state": true
+                }
+              ]
+            },
+            {
+              "type": "grid",
+              "cards": [
+                {
+                  "type": "heading",
+                  "heading": "Gauges",
+                  "heading_style": "title",
+                  "icon": "mdi:gauge"
                 },
                 {
-                  "show_name": true,
-                  "show_icon": true,
-                  "type": "button",
-                  "entity": "climate.ecobee",
-                  "name": "Ecobee",
-                  "icon": "mdi:air-conditioner",
-                  "icon_height": "24px",
-                  "tap_action": {
-                    "action": "more-info"
-                  },
-                  "hold_action": {
-                    "action": "none"
-                  },
-                  "show_state": true
+                  "type": "gauge",
+                  "entity": "sensor.living_room_temperature",
+                  "name": "Living Room Temp",
+                  "min": 0,
+                  "max": 40,
+                  "needle": true,
+                  "severity": {
+                    "green": 15,
+                    "yellow": 25,
+                    "red": 32
+                  }
+                },
+                {
+                  "type": "gauge",
+                  "entity": "sensor.bedroom_temperature",
+                  "name": "Bedroom Temp",
+                  "min": 0,
+                  "max": 40,
+                  "needle": true,
+                  "severity": {
+                    "green": 15,
+                    "yellow": 25,
+                    "red": 32
+                  }
+                },
+                {
+                  "type": "gauge",
+                  "entity": "sensor.living_room_humidity",
+                  "name": "Living Room Humidity",
+                  "min": 0,
+                  "max": 100,
+                  "needle": true,
+                  "severity": {
+                    "green": 30,
+                    "yellow": 60,
+                    "red": 80
+                  }
+                },
+                {
+                  "type": "gauge",
+                  "entity": "sensor.bedroom_humidity",
+                  "name": "Bedroom Humidity",
+                  "min": 0,
+                  "max": 100,
+                  "needle": true,
+                  "severity": {
+                    "green": 30,
+                    "yellow": 60,
+                    "red": 80
+                  }
+                },
+                {
+                  "type": "history-graph",
+                  "entities": [
+                    {
+                      "entity": "sensor.living_room_temperature",
+                      "name": "Living Room Temp"
+                    },
+                    {
+                      "entity": "sensor.bedroom_temperature",
+                      "name": "Bedroom Temp"
+                    },
+                    {
+                      "entity": "sensor.living_room_humidity",
+                      "name": "Living Room Humidity"
+                    },
+                    {
+                      "entity": "sensor.bedroom_humidity",
+                      "name": "Bedroom Humidity"
+                    }
+                  ],
+                  "hours_to_show": 24
                 }
               ]
             },
@@ -212,8 +273,6 @@
                     "switch.decorative_lights",
                     "fan.living_room_fan",
                     "media_player.living_room",
-                    "climate.hvac",
-                    "climate.ecobee",
                     "climate.heatpump"
                   ],
                   "state_filter": [
@@ -248,19 +307,14 @@
               "cards": [
                 {
                   "type": "heading",
-                  "heading": "Thermostats",
+                  "heading": "Central Heating",
                   "heading_style": "title",
-                  "icon": "mdi:thermostat"
+                  "icon": "mdi:heat-pump"
                 },
                 {
                   "type": "thermostat",
-                  "entity": "climate.ecobee",
-                  "name": "Ecobee"
-                },
-                {
-                  "type": "thermostat",
-                  "entity": "climate.hvac",
-                  "name": "HVAC"
+                  "entity": "climate.heatpump",
+                  "name": "Heat Pump"
                 }
               ]
             },
@@ -269,83 +323,47 @@
               "cards": [
                 {
                   "type": "heading",
-                  "heading": "Climate Controls",
+                  "heading": "Living Room",
                   "heading_style": "title",
-                  "icon": "mdi:air-conditioner"
+                  "icon": "mdi:sofa"
+                },
+                {
+                  "graph": "line",
+                  "type": "sensor",
+                  "entity": "sensor.living_room_temperature",
+                  "detail": 1,
+                  "name": "Temperature"
+                },
+                {
+                  "graph": "line",
+                  "type": "sensor",
+                  "entity": "sensor.living_room_humidity",
+                  "detail": 1,
+                  "name": "Humidity"
                 },
                 {
                   "show_name": true,
                   "show_icon": true,
                   "type": "button",
-                  "entity": "climate.hvac",
-                  "name": "HVAC",
+                  "entity": "climate.living_room_ac",
+                  "name": "AC",
                   "icon": "mdi:air-conditioner",
                   "icon_height": "24px",
                   "tap_action": {
                     "action": "more-info"
                   },
-                  "hold_action": {
-                    "action": "none"
-                  },
                   "show_state": true
                 },
                 {
                   "show_name": true,
                   "show_icon": true,
                   "type": "button",
-                  "entity": "climate.heatpump",
-                  "name": "Heat Pump",
-                  "icon": "mdi:heat-pump",
-                  "icon_height": "24px",
-                  "tap_action": {
-                    "action": "more-info"
-                  },
-                  "hold_action": {
-                    "action": "none"
-                  },
-                  "show_state": true
-                },
-                {
-                  "show_name": true,
-                  "show_icon": true,
-                  "type": "button",
-                  "entity": "climate.ecobee",
-                  "name": "Ecobee",
-                  "icon": "mdi:thermostat",
-                  "icon_height": "24px",
-                  "tap_action": {
-                    "action": "more-info"
-                  },
-                  "hold_action": {
-                    "action": "none"
-                  },
-                  "show_state": true
-                }
-              ]
-            },
-            {
-              "type": "grid",
-              "cards": [
-                {
-                  "type": "heading",
-                  "heading": "Humidity Control",
-                  "heading_style": "title",
-                  "icon": "mdi:water-percent"
-                },
-                {
-                  "show_name": true,
-                  "show_icon": true,
-                  "type": "button",
-                  "entity": "humidifier.dehumidifier",
-                  "name": "Dehumidifier",
-                  "icon": "mdi:air-humidifier",
+                  "entity": "fan.living_room_fan",
+                  "name": "Fan",
                   "icon_height": "24px",
                   "tap_action": {
                     "action": "toggle"
                   },
-                  "hold_action": {
-                    "action": "none"
-                  },
                   "show_state": true
                 }
               ]
@@ -355,62 +373,48 @@
               "cards": [
                 {
                   "type": "heading",
-                  "heading": "Gauges & Graphs",
+                  "heading": "Bedroom",
                   "heading_style": "title",
-                  "icon": "mdi:chart-areaspline"
+                  "icon": "mdi:bed"
                 },
                 {
-                  "type": "gauge",
-                  "entity": "sensor.outside_temperature",
-                  "name": "Temperature",
-                  "min": 0,
-                  "max": 40,
-                  "needle": true,
-                  "severity": {
-                    "green": 15,
-                    "yellow": 25,
-                    "red": 32
-                  }
+                  "graph": "line",
+                  "type": "sensor",
+                  "entity": "sensor.bedroom_temperature",
+                  "detail": 1,
+                  "name": "Temperature"
                 },
                 {
-                  "type": "gauge",
-                  "entity": "sensor.outside_humidity",
-                  "name": "Humidity",
-                  "min": 0,
-                  "max": 100,
-                  "needle": true,
-                  "severity": {
-                    "green": 30,
-                    "yellow": 60,
-                    "red": 80
-                  }
+                  "graph": "line",
+                  "type": "sensor",
+                  "entity": "sensor.bedroom_humidity",
+                  "detail": 1,
+                  "name": "Humidity"
                 },
                 {
-                  "type": "statistics-graph",
-                  "entities": [
-                    "sensor.outside_temperature"
-                  ],
-                  "stat_types": [
-                    "mean",
-                    "min",
-                    "max"
-                  ],
-                  "period": "hour",
-                  "days_to_show": 1
+                  "show_name": true,
+                  "show_icon": true,
+                  "type": "button",
+                  "entity": "climate.bedroom_ac",
+                  "name": "AC",
+                  "icon": "mdi:air-conditioner",
+                  "icon_height": "24px",
+                  "tap_action": {
+                    "action": "more-info"
+                  },
+                  "show_state": true
                 },
                 {
-                  "type": "history-graph",
-                  "entities": [
-                    {
-                      "entity": "sensor.outside_temperature",
-                      "name": "Temperature"
-                    },
-                    {
-                      "entity": "sensor.outside_humidity",
-                      "name": "Humidity"
-                    }
-                  ],
-                  "hours_to_show": 24
+                  "show_name": true,
+                  "show_icon": true,
+                  "type": "button",
+                  "entity": "fan.ceiling_fan",
+                  "name": "Fan",
+                  "icon_height": "24px",
+                  "tap_action": {
+                    "action": "toggle"
+                  },
+                  "show_state": true
                 }
               ]
             }
@@ -438,7 +442,6 @@
                   "entity": "light.bed_light",
                   "name": "Bed Light",
                   "icon": "mdi:lamp",
-                  "color": "primary",
                   "vertical": false,
                   "tap_action": {
                     "action": "toggle"
@@ -459,7 +462,6 @@
                   "entity": "light.ceiling_lights",
                   "name": "Ceiling Lights",
                   "icon": "mdi:ceiling-light",
-                  "color": "primary",
                   "vertical": false,
                   "tap_action": {
                     "action": "toggle"
@@ -480,7 +482,6 @@
                   "entity": "light.kitchen_lights",
                   "name": "Kitchen Lights",
                   "icon": "mdi:ceiling-light",
-                  "color": "primary",
                   "vertical": false,
                   "tap_action": {
                     "action": "toggle"
@@ -501,12 +502,15 @@
                   "entity": "switch.decorative_lights",
                   "name": "Decorative Lights",
                   "icon": "mdi:string-lights",
-                  "color": "primary",
                   "vertical": false,
                   "tap_action": {
                     "action": "toggle"
                   },
-                  "features_position": "bottom"
+                  "features_position": "bottom",
+                  "grid_options": {
+                    "columns": 12,
+                    "rows": 1
+                  }
                 }
               ]
             },
@@ -515,7 +519,7 @@
               "cards": [
                 {
                   "type": "heading",
-                  "heading": "Media Players",
+                  "heading": "Media",
                   "heading_style": "title",
                   "icon": "mdi:music"
                 },
@@ -526,26 +530,10 @@
                 {
                   "type": "tile",
                   "entity": "media_player.bedroom",
-                  "name": "Bedroom",
-                  "color": "primary",
                   "vertical": false,
-                  "features": [
-                    {
-                      "type": "media-player-volume-slider"
-                    }
+                  "state_content": [
+                    "media_title"
                   ],
-                  "features_position": "inline",
-                  "grid_options": {
-                    "columns": 12,
-                    "rows": 1
-                  }
-                },
-                {
-                  "type": "tile",
-                  "entity": "media_player.lounge_room",
-                  "name": "Lounge Room",
-                  "color": "primary",
-                  "vertical": false,
                   "features": [
                     {
                       "type": "media-player-volume-slider"
@@ -558,49 +546,70 @@
                   }
                 }
               ]
+            }
+          ]
+        },
+        {
+          "title": "People",
+          "path": "people",
+          "icon": "mdi:account-group",
+          "type": "sections",
+          "max_columns": 4,
+          "cards": [],
+          "sections": [
+            {
+              "type": "grid",
+              "cards": [
+                {
+                  "type": "heading",
+                  "heading": "Household",
+                  "heading_style": "title",
+                  "icon": "mdi:account-group"
+                },
+                {
+                  "type": "tile",
+                  "entity": "person.john_doe",
+                  "name": "John Doe",
+                  "vertical": true,
+                  "show_entity_picture": true,
+                  "features_position": "bottom",
+                  "grid_options": {
+                    "columns": 6,
+                    "rows": "auto"
+                  }
+                },
+                {
+                  "type": "tile",
+                  "entity": "person.jane_doe",
+                  "name": "Jane Doe",
+                  "vertical": true,
+                  "show_entity_picture": true,
+                  "features_position": "bottom",
+                  "grid_options": {
+                    "columns": 6,
+                    "rows": "auto"
+                  }
+                }
+              ]
             },
             {
               "type": "grid",
               "cards": [
                 {
                   "type": "heading",
-                  "heading": "Entertainment",
+                  "heading": "Location",
                   "heading_style": "title",
-                  "icon": "mdi:speaker-multiple"
+                  "icon": "mdi:map-marker"
                 },
                 {
-                  "type": "entities",
-                  "title": "All Media & Lights",
+                  "type": "map",
                   "entities": [
-                    {
-                      "entity": "media_player.living_room",
-                      "name": "Living Room"
-                    },
-                    {
-                      "entity": "media_player.bedroom",
-                      "name": "Bedroom"
-                    },
-                    {
-                      "entity": "media_player.lounge_room",
-                      "name": "Lounge Room"
-                    },
-                    {
-                      "entity": "light.bed_light",
-                      "name": "Bed Light"
-                    },
-                    {
-                      "entity": "light.ceiling_lights",
-                      "name": "Ceiling Lights"
-                    },
-                    {
-                      "entity": "light.kitchen_lights",
-                      "name": "Kitchen Lights"
-                    },
-                    {
-                      "entity": "switch.decorative_lights",
-                      "name": "Decorative Lights"
-                    }
-                  ]
+                    "person.john_doe",
+                    "person.jane_doe"
+                  ],
+                  "dark_mode": true,
+                  "default_zoom": 14,
+                  "hours_to_show": 24
                 }
               ]
             }
@@ -619,30 +628,7 @@
               "cards": [
                 {
                   "type": "heading",
-                  "heading": "People",
-                  "heading_style": "title",
-                  "icon": "mdi:account-group"
-                },
-                {
-                  "type": "tile",
-                  "entity": "person.demo",
-                  "name": "Demo User",
-                  "color": "primary",
-                  "vertical": false,
-                  "features_position": "bottom",
-                  "grid_options": {
-                    "columns": 12,
-                    "rows": 1
-                  }
-                }
-              ]
-            },
-            {
-              "type": "grid",
-              "cards": [
-                {
-                  "type": "heading",
-                  "heading": "Vacuum & Fans",
+                  "heading": "Vacuum",
                   "heading_style": "title",
                   "icon": "mdi:robot-vacuum"
                 },
@@ -653,36 +639,6 @@
                   "entity": "vacuum.demo_vacuum_0_ground_floor",
                   "name": "Vacuum",
                   "icon_height": "24px",
-                  "hold_action": {
-                    "action": "none"
-                  },
-                  "show_state": true
-                },
-                {
-                  "show_name": true,
-                  "show_icon": true,
-                  "type": "button",
-                  "entity": "fan.living_room_fan",
-                  "name": "Living Room Fan",
-                  "icon_height": "24px",
-                  "tap_action": {
-                    "action": "toggle"
-                  },
-                  "hold_action": {
-                    "action": "none"
-                  },
-                  "show_state": true
-                },
-                {
-                  "show_name": true,
-                  "show_icon": true,
-                  "type": "button",
-                  "entity": "fan.ceiling_fan",
-                  "name": "Ceiling Fan",
-                  "icon_height": "24px",
-                  "tap_action": {
-                    "action": "toggle"
-                  },
                   "hold_action": {
                     "action": "none"
                   },
@@ -830,7 +786,7 @@
                   "entities": [
                     "light.bed_light",
                     "light.ceiling_lights",
-                    "climate.hvac",
+                    "climate.heatpump",
                     "lock.front_door",
                     "cover.garage_door"
                   ],
@@ -840,12 +796,12 @@
                   "type": "history-graph",
                   "entities": [
                     {
-                      "entity": "sensor.outside_temperature",
-                      "name": "Temperature"
+                      "entity": "sensor.living_room_temperature",
+                      "name": "Living Room Temp"
                     },
                     {
-                      "entity": "sensor.outside_humidity",
-                      "name": "Humidity"
+                      "entity": "sensor.bedroom_temperature",
+                      "name": "Bedroom Temp"
                     }
                   ],
                   "hours_to_show": 48
@@ -865,15 +821,6 @@
                   "type": "markdown",
                   "title": "Theme Info",
                   "content": "### Arctic Night Theme\n\n**Card-mod Styles Showcased:**\n- Climate state colors (heat, cool, dry, fan_only, heat_cool, auto)\n- Vacuum state colors (cleaning, returning, paused, error)\n- Generic on-state colors for lights, switches, fans\n- Person border colors (home / not_home)\n- Card header font styling\n\n**GitHub:** [arctic-night-theme](https://github.com/manospasj/home-assistant-arctic-night-theme)"
-                },
-                {
-                  "type": "map",
-                  "entities": [
-                    "person.demo"
-                  ],
-                  "dark_mode": true,
-                  "default_zoom": 14,
-                  "hours_to_show": 24
                 }
               ]
             },
@@ -895,56 +842,6 @@
                 {
                   "type": "todo-list",
                   "entity": "todo.shopping_list"
-                }
-              ]
-            },
-            {
-              "type": "grid",
-              "cards": [
-                {
-                  "type": "heading",
-                  "heading": "Conditional Display",
-                  "heading_style": "title",
-                  "icon": "mdi:swap-horizontal"
-                },
-                {
-                  "type": "conditional",
-                  "conditions": [
-                    {
-                      "entity": "climate.hvac",
-                      "state": "heat"
-                    }
-                  ],
-                  "card": {
-                    "type": "markdown",
-                    "content": "### Heating Active\nThe HVAC is currently in **heating** mode. This conditional card only appears when the HVAC state is `heat`."
-                  }
-                },
-                {
-                  "type": "conditional",
-                  "conditions": [
-                    {
-                      "entity": "climate.hvac",
-                      "state": "cool"
-                    }
-                  ],
-                  "card": {
-                    "type": "markdown",
-                    "content": "### Cooling Active\nThe HVAC is currently in **cooling** mode. This conditional card only appears when the HVAC state is `cool`."
-                  }
-                },
-                {
-                  "type": "conditional",
-                  "conditions": [
-                    {
-                      "entity": "light.bed_light",
-                      "state": "on"
-                    }
-                  ],
-                  "card": {
-                    "type": "markdown",
-                    "content": "### Bed Light is On\nThe bed light is currently **on**. This conditional card appears only when the light is turned on."
-                  }
                 }
               ]
             }

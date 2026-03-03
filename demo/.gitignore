@@ -1,15 +1,27 @@
-# Ignore everything in config
-/config/**/*
+# Runtime generated files
+config/.HA_VERSION
+config/.cloud/
+config/.ha_run.lock
+config/.shopping_list.json
+config/blueprints/
+config/deps/
+config/home-assistant.log*
+config/home-assistant_v2.db*
+config/tts/
+config/seed.py
 
-# Except a few specific config files
-!/config/configuration.yaml
-!/config/.storage/auth_provider.homeassistant
-!/config/.storage/lovelace.lovelace
-!/config/.storage/onboarding
-!/config/.storage/frontend_theme
-!/config/.storage/frontend.system_data
-!/config/.storage/lovelace_dashboards
-!/config/.storage/lovelace_resources
+# Runtime .storage files
+config/.storage/auth
+config/.storage/assist_pipeline.pipelines
+config/.storage/bluetooth.*
+config/.storage/core.device_registry
+config/.storage/core.entity_registry
+config/.storage/core.restore_state
+config/.storage/core.uuid
+config/.storage/homeassistant.exposed_entities
+config/.storage/http
+config/.storage/http.auth
+config/.storage/repairs.issue_registry
 
-# Even though they are in a subdirectory
-!*/
+# Downloaded at runtime by compose entrypoint
+config/www/card-mod.js

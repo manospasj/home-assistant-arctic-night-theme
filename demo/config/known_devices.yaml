@@ -1,0 +1,34 @@
+john_doe_tracker:
+  name: john_doe_tracker
+  mac:
+  icon:
+  picture:
+  track: true
+
+jane_doe_tracker:
+  name: jane_doe_tracker
+  mac:
+  icon:
+  picture:
+  track: true
+
+demo_paulus:
+  name: Paulus
+  mac:
+  icon:
+  picture:
+  track: true
+
+demo_anne_therese:
+  name: Anne Therese
+  mac:
+  icon:
+  picture:
+  track: true
+
+demo_home_boy:
+  name: Home Boy
+  mac:
+  icon:
+  picture:
+  track: true
