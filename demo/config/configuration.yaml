@@ -7,11 +7,6 @@ frontend:
 
 demo:
 
-alarm_control_panel:
-  - platform: manual
-    name: Area 001
-    code: "1234"
-
 template:
   - sensor:
       - name: "Living Room Temperature"

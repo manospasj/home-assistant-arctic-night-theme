@@ -141,21 +141,6 @@
                   "show_name": true,
                   "show_icon": true,
                   "type": "button",
-                  "entity": "switch.decorative_lights",
-                  "name": "Decorative",
-                  "icon_height": "24px",
-                  "tap_action": {
-                    "action": "toggle"
-                  },
-                  "hold_action": {
-                    "action": "none"
-                  },
-                  "show_state": true
-                },
-                {
-                  "show_name": true,
-                  "show_icon": true,
-                  "type": "button",
                   "entity": "climate.heatpump",
                   "name": "Heat Pump",
                   "icon": "mdi:heat-pump",
@@ -167,91 +152,18 @@
                     "action": "none"
                   },
                   "show_state": true
-                }
-              ]
-            },
-            {
-              "type": "grid",
-              "cards": [
-                {
-                  "type": "heading",
-                  "heading": "Gauges",
-                  "heading_style": "title",
-                  "icon": "mdi:gauge"
                 },
                 {
-                  "type": "gauge",
-                  "entity": "sensor.living_room_temperature",
-                  "name": "Living Room Temp",
-                  "min": 0,
-                  "max": 40,
-                  "needle": true,
-                  "severity": {
-                    "green": 15,
-                    "yellow": 25,
-                    "red": 32
-                  }
-                },
-                {
-                  "type": "gauge",
-                  "entity": "sensor.bedroom_temperature",
-                  "name": "Bedroom Temp",
-                  "min": 0,
-                  "max": 40,
-                  "needle": true,
-                  "severity": {
-                    "green": 15,
-                    "yellow": 25,
-                    "red": 32
-                  }
-                },
-                {
-                  "type": "gauge",
-                  "entity": "sensor.living_room_humidity",
-                  "name": "Living Room Humidity",
-                  "min": 0,
-                  "max": 100,
-                  "needle": true,
-                  "severity": {
-                    "green": 30,
-                    "yellow": 60,
-                    "red": 80
-                  }
-                },
-                {
-                  "type": "gauge",
-                  "entity": "sensor.bedroom_humidity",
-                  "name": "Bedroom Humidity",
-                  "min": 0,
-                  "max": 100,
-                  "needle": true,
-                  "severity": {
-                    "green": 30,
-                    "yellow": 60,
-                    "red": 80
-                  }
-                },
-                {
-                  "type": "history-graph",
-                  "entities": [
-                    {
-                      "entity": "sensor.living_room_temperature",
-                      "name": "Living Room Temp"
-                    },
-                    {
-                      "entity": "sensor.bedroom_temperature",
-                      "name": "Bedroom Temp"
-                    },
-                    {
-                      "entity": "sensor.living_room_humidity",
-                      "name": "Living Room Humidity"
-                    },
-                    {
-                      "entity": "sensor.bedroom_humidity",
-                      "name": "Bedroom Humidity"
-                    }
-                  ],
-                  "hours_to_show": 24
+                  "show_name": true,
+                  "show_icon": true,
+                  "type": "button",
+                  "entity": "vacuum.demo_vacuum_0_ground_floor",
+                  "name": "Vacuum",
+                  "icon_height": "24px",
+                  "hold_action": {
+                    "action": "none"
+                  },
+                  "show_state": true
                 }
               ]
             },
@@ -289,6 +201,27 @@
                     "type": "entities",
                     "title": "Currently Active"
                   }
+                }
+              ]
+            },
+            {
+              "type": "grid",
+              "cards": [
+                {
+                  "type": "heading",
+                  "heading": "Calendar & Tasks",
+                  "heading_style": "title",
+                  "icon": "mdi:calendar"
+                },
+                {
+                  "type": "calendar",
+                  "entities": [
+                    "calendar.calendar_1"
+                  ]
+                },
+                {
+                  "type": "todo-list",
+                  "entity": "todo.shopping_list"
                 }
               ]
             }
@@ -616,9 +549,9 @@
           ]
         },
         {
-          "title": "Devices",
-          "path": "devices",
-          "icon": "mdi:devices",
+          "title": "Admin",
+          "path": "admin",
+          "icon": "mdi:server",
           "type": "sections",
           "max_columns": 4,
           "cards": [],
@@ -628,21 +561,51 @@
               "cards": [
                 {
                   "type": "heading",
-                  "heading": "Vacuum",
+                  "heading": "Home Server",
                   "heading_style": "title",
-                  "icon": "mdi:robot-vacuum"
+                  "icon": "mdi:server"
                 },
                 {
-                  "show_name": true,
-                  "show_icon": true,
-                  "type": "button",
-                  "entity": "vacuum.demo_vacuum_0_ground_floor",
-                  "name": "Vacuum",
-                  "icon_height": "24px",
-                  "hold_action": {
-                    "action": "none"
-                  },
-                  "show_state": true
+                  "type": "gauge",
+                  "entity": "sensor.processor_use",
+                  "name": "CPU",
+                  "unit": "%",
+                  "min": 0,
+                  "max": 100,
+                  "needle": true,
+                  "severity": {
+                    "green": 0,
+                    "yellow": 60,
+                    "red": 85
+                  }
+                },
+                {
+                  "type": "gauge",
+                  "entity": "sensor.memory_use_percent",
+                  "name": "RAM",
+                  "unit": "%",
+                  "min": 0,
+                  "max": 100,
+                  "needle": true,
+                  "severity": {
+                    "green": 0,
+                    "yellow": 70,
+                    "red": 90
+                  }
+                },
+                {
+                  "type": "gauge",
+                  "entity": "sensor.disk_use_percent",
+                  "name": "Disk",
+                  "unit": "%",
+                  "min": 0,
+                  "max": 100,
+                  "needle": true,
+                  "severity": {
+                    "green": 0,
+                    "yellow": 70,
+                    "red": 90
+                  }
                 }
               ]
             },
@@ -651,113 +614,42 @@
               "cards": [
                 {
                   "type": "heading",
-                  "heading": "Locks & Doors",
+                  "heading": "Details",
                   "heading_style": "title",
-                  "icon": "mdi:shield-home"
+                  "icon": "mdi:information-outline"
                 },
                 {
-                  "show_name": true,
-                  "show_icon": true,
-                  "type": "button",
-                  "entity": "lock.front_door",
-                  "name": "Front Door",
-                  "icon_height": "24px",
-                  "tap_action": {
-                    "action": "toggle"
-                  },
-                  "hold_action": {
-                    "action": "none"
-                  },
-                  "show_state": true
-                },
-                {
-                  "show_name": true,
-                  "show_icon": true,
-                  "type": "button",
-                  "entity": "lock.kitchen_door",
-                  "name": "Kitchen Door",
-                  "icon_height": "24px",
-                  "tap_action": {
-                    "action": "toggle"
-                  },
-                  "hold_action": {
-                    "action": "none"
-                  },
-                  "show_state": true
-                },
-                {
-                  "show_name": true,
-                  "show_icon": true,
-                  "type": "button",
-                  "entity": "cover.garage_door",
-                  "name": "Garage Door",
-                  "icon_height": "24px",
-                  "tap_action": {
-                    "action": "toggle"
-                  },
-                  "hold_action": {
-                    "action": "none"
-                  },
-                  "show_state": true
-                },
-                {
-                  "show_name": true,
-                  "show_icon": true,
-                  "type": "button",
-                  "entity": "cover.hall_window",
-                  "name": "Hall Window",
-                  "icon": "mdi:blinds",
-                  "icon_height": "24px",
-                  "tap_action": {
-                    "action": "toggle"
-                  },
-                  "hold_action": {
-                    "action": "none"
-                  },
-                  "show_state": true
-                },
-                {
-                  "show_name": true,
-                  "show_icon": true,
-                  "type": "button",
-                  "entity": "cover.living_room_window",
-                  "name": "Living Room Window",
-                  "icon": "mdi:blinds",
-                  "icon_height": "24px",
-                  "tap_action": {
-                    "action": "toggle"
-                  },
-                  "hold_action": {
-                    "action": "none"
-                  },
-                  "show_state": true
-                }
-              ]
-            },
-            {
-              "type": "grid",
-              "cards": [
-                {
-                  "type": "heading",
-                  "heading": "Motion & Alarm",
-                  "heading_style": "title",
-                  "icon": "mdi:motion-sensor"
-                },
-                {
-                  "type": "tile",
-                  "entity": "binary_sensor.movement_backyard",
-                  "name": "Backyard Motion",
-                  "vertical": false,
-                  "features_position": "bottom"
-                },
-                {
-                  "type": "alarm-panel",
-                  "entity": "alarm_control_panel.area_001",
-                  "name": "Home Alarm",
-                  "states": [
-                    "arm_home",
-                    "arm_away",
-                    "arm_night"
+                  "type": "entities",
+                  "title": "System",
+                  "entities": [
+                    {
+                      "entity": "sensor.processor_use",
+                      "name": "CPU Usage"
+                    },
+                    {
+                      "entity": "sensor.processor_temperature",
+                      "name": "CPU Temperature"
+                    },
+                    {
+                      "entity": "sensor.memory_use_percent",
+                      "name": "RAM Usage"
+                    },
+                    {
+                      "entity": "sensor.memory_free",
+                      "name": "RAM Free"
+                    },
+                    {
+                      "entity": "sensor.disk_use_percent",
+                      "name": "Disk Usage"
+                    },
+                    {
+                      "entity": "sensor.disk_free",
+                      "name": "Disk Free"
+                    },
+                    {
+                      "entity": "sensor.last_boot",
+                      "name": "Last Boot"
+                    }
                   ]
                 }
               ]
@@ -765,9 +657,9 @@
           ]
         },
         {
-          "title": "Data",
-          "path": "data",
-          "icon": "mdi:chart-box",
+          "title": "Security",
+          "path": "security",
+          "icon": "mdi:shield-home",
           "type": "sections",
           "max_columns": 4,
           "cards": [],
@@ -777,71 +669,175 @@
               "cards": [
                 {
                   "type": "heading",
-                  "heading": "History",
+                  "heading": "Alarm",
                   "heading_style": "title",
-                  "icon": "mdi:history"
+                  "icon": "mdi:shield-lock"
+                },
+                {
+                  "type": "alarm-panel",
+                  "entity": "alarm_control_panel.security",
+                  "name": "Security System",
+                  "states": [
+                    "arm_home",
+                    "arm_away",
+                    "arm_night",
+                    "arm_vacation"
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "grid",
+              "cards": [
+                {
+                  "type": "heading",
+                  "heading": "Entry Points",
+                  "heading_style": "title",
+                  "icon": "mdi:door-closed-lock"
+                },
+                {
+                  "type": "tile",
+                  "entity": "lock.front_door",
+                  "name": "Front Door",
+                  "icon": "mdi:door",
+                  "vertical": false,
+                  "tap_action": {
+                    "action": "toggle"
+                  },
+                  "features_position": "bottom",
+                  "grid_options": {
+                    "columns": 12,
+                    "rows": 1
+                  }
+                },
+                {
+                  "type": "tile",
+                  "entity": "lock.kitchen_door",
+                  "name": "Kitchen Door",
+                  "icon": "mdi:door",
+                  "vertical": false,
+                  "tap_action": {
+                    "action": "toggle"
+                  },
+                  "features_position": "bottom",
+                  "grid_options": {
+                    "columns": 12,
+                    "rows": 1
+                  }
+                },
+                {
+                  "type": "tile",
+                  "entity": "cover.garage_door",
+                  "name": "Garage Door",
+                  "icon": "mdi:garage",
+                  "vertical": false,
+                  "tap_action": {
+                    "action": "toggle"
+                  },
+                  "features": [
+                    {
+                      "type": "cover-open-close"
+                    }
+                  ],
+                  "features_position": "inline",
+                  "grid_options": {
+                    "columns": 12,
+                    "rows": 1
+                  }
+                },
+                {
+                  "type": "tile",
+                  "entity": "cover.hall_window",
+                  "name": "Hall Window",
+                  "icon": "mdi:blinds",
+                  "vertical": false,
+                  "tap_action": {
+                    "action": "toggle"
+                  },
+                  "features": [
+                    {
+                      "type": "cover-open-close"
+                    }
+                  ],
+                  "features_position": "inline",
+                  "grid_options": {
+                    "columns": 12,
+                    "rows": 1
+                  }
+                },
+                {
+                  "type": "tile",
+                  "entity": "cover.living_room_window",
+                  "name": "Living Room Window",
+                  "icon": "mdi:blinds",
+                  "vertical": false,
+                  "tap_action": {
+                    "action": "toggle"
+                  },
+                  "features": [
+                    {
+                      "type": "cover-open-close"
+                    }
+                  ],
+                  "features_position": "inline",
+                  "grid_options": {
+                    "columns": 12,
+                    "rows": 1
+                  }
+                },
+                {
+                  "type": "tile",
+                  "entity": "cover.kitchen_window",
+                  "name": "Kitchen Window",
+                  "icon": "mdi:blinds",
+                  "vertical": false,
+                  "tap_action": {
+                    "action": "toggle"
+                  },
+                  "features": [
+                    {
+                      "type": "cover-open-close"
+                    }
+                  ],
+                  "features_position": "inline",
+                  "grid_options": {
+                    "columns": 12,
+                    "rows": 1
+                  }
+                }
+              ]
+            },
+            {
+              "type": "grid",
+              "cards": [
+                {
+                  "type": "heading",
+                  "heading": "Activity",
+                  "heading_style": "title",
+                  "icon": "mdi:motion-sensor"
+                },
+                {
+                  "type": "tile",
+                  "entity": "binary_sensor.movement_backyard",
+                  "name": "Backyard Motion",
+                  "icon": "mdi:motion-sensor",
+                  "vertical": false,
+                  "features_position": "bottom",
+                  "grid_options": {
+                    "columns": 12,
+                    "rows": 1
+                  }
                 },
                 {
                   "type": "logbook",
                   "entities": [
-                    "light.bed_light",
-                    "light.ceiling_lights",
-                    "climate.heatpump",
                     "lock.front_door",
-                    "cover.garage_door"
+                    "lock.kitchen_door",
+                    "cover.garage_door",
+                    "binary_sensor.movement_backyard",
+                    "alarm_control_panel.security"
                   ],
                   "hours_to_show": 24
-                },
-                {
-                  "type": "history-graph",
-                  "entities": [
-                    {
-                      "entity": "sensor.living_room_temperature",
-                      "name": "Living Room Temp"
-                    },
-                    {
-                      "entity": "sensor.bedroom_temperature",
-                      "name": "Bedroom Temp"
-                    }
-                  ],
-                  "hours_to_show": 48
-                }
-              ]
-            },
-            {
-              "type": "grid",
-              "cards": [
-                {
-                  "type": "heading",
-                  "heading": "Information",
-                  "heading_style": "title",
-                  "icon": "mdi:information"
-                },
-                {
-                  "type": "markdown",
-                  "title": "Theme Info",
-                  "content": "### Arctic Night Theme\n\n**Card-mod Styles Showcased:**\n- Climate state colors (heat, cool, dry, fan_only, heat_cool, auto)\n- Vacuum state colors (cleaning, returning, paused, error)\n- Generic on-state colors for lights, switches, fans\n- Person border colors (home / not_home)\n- Card header font styling\n\n**GitHub:** [arctic-night-theme](https://github.com/manospasj/home-assistant-arctic-night-theme)"
-                }
-              ]
-            },
-            {
-              "type": "grid",
-              "cards": [
-                {
-                  "type": "heading",
-                  "heading": "Calendar & Tasks",
-                  "heading_style": "title",
-                  "icon": "mdi:calendar"
-                },
-                {
-                  "type": "calendar",
-                  "entities": [
-                    "calendar.calendar_1"
-                  ]
-                },
-                {
-                  "type": "todo-list",
-                  "entity": "todo.shopping_list"
                 }
               ]
             }
