@@ -1,7 +1,6 @@
 services:
   home-assistant:
     image: ghcr.io/home-assistant/home-assistant:2026.2
-    restart: unless-stopped
     entrypoint: /bin/bash
     command:
       - -c

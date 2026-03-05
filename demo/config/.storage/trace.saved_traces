@@ -6,12 +6,12 @@
     "automation.None": [
       {
         "extended_dict": {
-          "last_step": "action/1",
-          "run_id": "b62c10e0474d88d98df8a275fc82c931",
+          "last_step": "action/3",
+          "run_id": "444b7c5458c6d2556a297e78fb937af0",
           "state": "running",
           "script_execution": null,
           "timestamp": {
-            "start": "2026-03-03T21:25:25.571903+00:00",
+            "start": "2026-03-05T07:11:47.669394+00:00",
             "finish": null
           },
           "domain": "automation",
@@ -21,22 +21,22 @@
             "trigger/0": [
               {
                 "path": "trigger/0",
-                "timestamp": "2026-03-03T21:25:25.571941+00:00",
+                "timestamp": "2026-03-05T07:11:47.669477+00:00",
                 "changed_variables": {
                   "this": {
                     "entity_id": "automation.set_demo_person_locations",
                     "state": "on",
                     "attributes": {
-                      "last_triggered": null,
+                      "last_triggered": "2026-03-03T22:13:31.904896+00:00",
                       "mode": "single",
                       "current": 0,
                       "friendly_name": "Set demo person locations"
                     },
-                    "last_changed": "2026-03-03T21:25:25.264309+00:00",
-                    "last_reported": "2026-03-03T21:25:25.264309+00:00",
-                    "last_updated": "2026-03-03T21:25:25.264309+00:00",
+                    "last_changed": "2026-03-05T07:11:45.487770+00:00",
+                    "last_reported": "2026-03-05T07:11:45.487770+00:00",
+                    "last_updated": "2026-03-05T07:11:45.487770+00:00",
                     "context": {
-                      "id": "01KJTSETMGFRHSNV0Z4JY4WV9V",
+                      "id": "01KJYDD5AF0HPXJYSQNPM6WK8B",
                       "parent_id": null,
                       "user_id": null
                     }
@@ -55,10 +55,10 @@
             "action/0": [
               {
                 "path": "action/0",
-                "timestamp": "2026-03-03T21:25:25.572138+00:00",
+                "timestamp": "2026-03-05T07:11:47.669819+00:00",
                 "changed_variables": {
                   "context": {
-                    "id": "01KJTSETY3MYAJVTQW7QKEVWAE",
+                    "id": "01KJYDD7ENH74KFAN1PYBRGDG2",
                     "parent_id": null,
                     "user_id": null
                   }
@@ -69,7 +69,12 @@
                     "service": "see",
                     "service_data": {
                       "dev_id": "john_doe_tracker",
-                      "location_name": "home"
+                      "location_name": "home",
+                      "gps": [
+                        32.8328,
+                        -117.2713
+                      ],
+                      "gps_accuracy": 10
                     },
                     "target": {}
                   },
@@ -80,16 +85,68 @@
             "action/1": [
               {
                 "path": "action/1",
-                "timestamp": "2026-03-03T21:25:25.572585+00:00",
+                "timestamp": "2026-03-05T07:11:47.671587+00:00",
                 "result": {
                   "params": {
                     "domain": "device_tracker",
                     "service": "see",
                     "service_data": {
                       "dev_id": "jane_doe_tracker",
-                      "location_name": "not_home"
+                      "location_name": "not_home",
+                      "gps": [
+                        32.845,
+                        -117.253
+                      ],
+                      "gps_accuracy": 50
                     },
                     "target": {}
+                  },
+                  "running_script": false
+                }
+              }
+            ],
+            "action/2": [
+              {
+                "path": "action/2",
+                "timestamp": "2026-03-05T07:11:47.671930+00:00",
+                "result": {
+                  "params": {
+                    "domain": "climate",
+                    "service": "turn_off",
+                    "service_data": {},
+                    "target": {
+                      "entity_id": [
+                        "climate.heatpump",
+                        "climate.living_room_ac",
+                        "climate.bedroom_ac"
+                      ]
+                    }
+                  },
+                  "running_script": false
+                }
+              }
+            ],
+            "action/3": [
+              {
+                "path": "action/3",
+                "timestamp": "2026-03-05T07:11:47.683176+00:00",
+                "result": {
+                  "params": {
+                    "domain": "media_player",
+                    "service": "volume_set",
+                    "service_data": {
+                      "volume_level": 0.2,
+                      "entity_id": [
+                        "media_player.living_room",
+                        "media_player.bedroom"
+                      ]
+                    },
+                    "target": {
+                      "entity_id": [
+                        "media_player.living_room",
+                        "media_player.bedroom"
+                      ]
+                    }
                   },
                   "running_script": false
                 }
@@ -108,33 +165,65 @@
               {
                 "data": {
                   "dev_id": "john_doe_tracker",
-                  "location_name": "home"
+                  "location_name": "home",
+                  "gps": [
+                    32.8328,
+                    -117.2713
+                  ],
+                  "gps_accuracy": 10
                 },
                 "action": "device_tracker.see"
               },
               {
                 "data": {
                   "dev_id": "jane_doe_tracker",
-                  "location_name": "not_home"
+                  "location_name": "not_home",
+                  "gps": [
+                    32.845,
+                    -117.253
+                  ],
+                  "gps_accuracy": 50
                 },
                 "action": "device_tracker.see"
+              },
+              {
+                "target": {
+                  "entity_id": [
+                    "climate.heatpump",
+                    "climate.living_room_ac",
+                    "climate.bedroom_ac"
+                  ]
+                },
+                "action": "climate.turn_off"
+              },
+              {
+                "target": {
+                  "entity_id": [
+                    "media_player.living_room",
+                    "media_player.bedroom"
+                  ]
+                },
+                "data": {
+                  "volume_level": 0.2
+                },
+                "action": "media_player.volume_set"
               }
             ]
           },
           "blueprint_inputs": null,
           "context": {
-            "id": "01KJTSETY3MYAJVTQW7QKEVWAE",
+            "id": "01KJYDD7ENH74KFAN1PYBRGDG2",
             "parent_id": null,
             "user_id": null
           }
         },
         "short_dict": {
-          "last_step": "action/1",
-          "run_id": "b62c10e0474d88d98df8a275fc82c931",
+          "last_step": "action/3",
+          "run_id": "444b7c5458c6d2556a297e78fb937af0",
           "state": "running",
           "script_execution": null,
           "timestamp": {
-            "start": "2026-03-03T21:25:25.571903+00:00",
+            "start": "2026-03-05T07:11:47.669394+00:00",
             "finish": null
           },
           "domain": "automation",
