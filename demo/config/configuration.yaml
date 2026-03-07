@@ -12,19 +12,47 @@ template:
       - name: "Living Room Temperature"
         unit_of_measurement: "°C"
         device_class: temperature
-        state: "{{ state_attr('climate.living_room_ac', 'current_temperature') }}"
+        state: "{{ state_attr('climate.hvac', 'current_temperature') }}"
       - name: "Bedroom Temperature"
         unit_of_measurement: "°C"
         device_class: temperature
-        state: "{{ state_attr('climate.bedroom_ac', 'current_temperature') }}"
+        state: "{{ state_attr('climate.ecobee', 'current_temperature') }}"
       - name: "Living Room Humidity"
         unit_of_measurement: "%"
         device_class: humidity
-        state: "{{ state_attr('climate.living_room_ac', 'current_humidity') | default(45, true) }}"
+        state: "{{ state_attr('climate.hvac', 'current_humidity') | default(45, true) }}"
       - name: "Bedroom Humidity"
         unit_of_measurement: "%"
         device_class: humidity
-        state: "{{ state_attr('climate.bedroom_ac', 'current_humidity') | default(52, true) }}"
+        state: "{{ state_attr('climate.ecobee', 'current_humidity') | default(52, true) }}"
+      - name: "Processor Use"
+        unit_of_measurement: "%"
+        state_class: measurement
+        state: "23.4"
+      - name: "Processor Temperature"
+        unit_of_measurement: "°C"
+        device_class: temperature
+        state_class: measurement
+        state: "52.1"
+      - name: "Memory Use Percent"
+        unit_of_measurement: "%"
+        state_class: measurement
+        state: "67.2"
+      - name: "Memory Free"
+        unit_of_measurement: "GiB"
+        state_class: measurement
+        state: "3.2"
+      - name: "Disk Use Percent"
+        unit_of_measurement: "%"
+        state_class: measurement
+        state: "41.8"
+      - name: "Disk Free"
+        unit_of_measurement: "GiB"
+        state_class: measurement
+        state: "234.5"
+      - name: "Last Boot"
+        device_class: timestamp
+        state: "2026-03-05T08:23:14+00:00"
 
 automation:
   - alias: "Set demo person locations"
@@ -52,8 +80,8 @@ automation:
         target:
           entity_id:
             - climate.heatpump
-            - climate.living_room_ac
-            - climate.bedroom_ac
+            - climate.hvac
+            - climate.ecobee
       - service: media_player.volume_set
         target:
           entity_id:

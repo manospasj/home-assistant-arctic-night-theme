@@ -18,24 +18,23 @@
               "show_name": true,
               "show_state": true,
               "show_icon": true,
-              "entity": "person.john_doe",
-              "name": "John Doe"
+              "entity": "air_quality.demo_air_quality_home",
+              "name": "Air Quality"
+            },
+            {
+              "type": "entity",
+              "show_name": false,
+              "show_state": true,
+              "show_icon": true,
+              "entity": "device_tracker.demo_home_boy"
             },
             {
               "type": "entity",
               "show_name": true,
               "show_state": true,
               "show_icon": true,
-              "entity": "person.jane_doe",
-              "name": "Jane Doe"
-            },
-            {
-              "type": "entity",
-              "show_name": true,
-              "show_state": true,
-              "show_icon": true,
-              "entity": "binary_sensor.movement_backyard",
-              "name": "Backyard Motion"
+              "entity": "binary_sensor.basement_floor_wet",
+              "name": "Basement Floor"
             }
           ],
           "sections": [
@@ -44,37 +43,91 @@
               "cards": [
                 {
                   "type": "heading",
-                  "heading": "Welcome",
+                  "heading": "Climate",
                   "heading_style": "title",
-                  "icon": "mdi:hand-wave"
+                  "icon": "mdi:home-thermometer"
                 },
                 {
-                  "type": "markdown",
-                  "content": "## Arctic Night Theme\nWelcome to the **Arctic Night** theme demo. This dashboard showcases all major Home Assistant card types styled with the theme.\n\nUse the tabs above to explore climate controls, lights, media, devices, and data views."
+                  "graph": "line",
+                  "type": "sensor",
+                  "entity": "sensor.outside_temperature",
+                  "detail": 1,
+                  "name": "Temperature"
                 },
                 {
-                  "type": "glance",
-                  "title": "Quick Overview",
-                  "entities": [
+                  "graph": "line",
+                  "type": "sensor",
+                  "entity": "sensor.outside_humidity",
+                  "detail": 2,
+                  "name": "Humidity"
+                },
+                {
+                  "features": [
                     {
-                      "entity": "sensor.living_room_temperature",
-                      "name": "Living Room"
-                    },
+                      "type": "fan-speed"
+                    }
+                  ],
+                  "type": "tile",
+                  "entity": "fan.ceiling_fan",
+                  "features_position": "bottom",
+                  "vertical": false
+                },
+                {
+                  "features": [
                     {
-                      "entity": "sensor.bedroom_temperature",
-                      "name": "Bedroom"
-                    },
+                      "type": "fan-speed"
+                    }
+                  ],
+                  "type": "tile",
+                  "entity": "fan.living_room_fan",
+                  "features_position": "bottom",
+                  "vertical": false
+                },
+                {
+                  "show_name": true,
+                  "show_icon": true,
+                  "type": "button",
+                  "entity": "climate.hvac",
+                  "name": "Living Room AC",
+                  "icon": "mdi:air-conditioner",
+                  "icon_height": "24px",
+                  "tap_action": {
+                    "action": "more-info"
+                  },
+                  "show_state": true
+                },
+                {
+                  "show_name": true,
+                  "show_icon": true,
+                  "type": "button",
+                  "entity": "climate.ecobee",
+                  "name": "Bedroom AC",
+                  "icon": "mdi:air-conditioner",
+                  "icon_height": "24px",
+                  "tap_action": {
+                    "action": "more-info"
+                  },
+                  "show_state": true
+                },
+                {
+                  "type": "thermostat",
+                  "entity": "climate.ecobee",
+                  "grid_options": {
+                    "columns": 12,
+                    "rows": 6
+                  },
+                  "features": [
                     {
-                      "entity": "weather.demo_weather_south",
-                      "name": "Weather"
-                    },
+                      "type": "climate-hvac-modes"
+                    }
+                  ]
+                },
+                {
+                  "type": "humidifier",
+                  "entity": "humidifier.humidifier",
+                  "features": [
                     {
-                      "entity": "light.ceiling_lights",
-                      "name": "Ceiling"
-                    },
-                    {
-                      "entity": "climate.heatpump",
-                      "name": "Heat Pump"
+                      "type": "humidifier-toggle"
                     }
                   ]
                 }
@@ -85,9 +138,229 @@
               "cards": [
                 {
                   "type": "heading",
-                  "heading": "Weather",
+                  "heading": "Security",
                   "heading_style": "title",
-                  "icon": "mdi:weather-partly-cloudy"
+                  "icon": "mdi:alarm-panel"
+                },
+                {
+                  "show_name": true,
+                  "show_icon": true,
+                  "show_state": true,
+                  "type": "button",
+                  "entity": "binary_sensor.movement_backyard",
+                  "icon_height": "24px",
+                  "tap_action": {
+                    "action": "more-info"
+                  }
+                },
+                {
+                  "show_name": true,
+                  "show_icon": true,
+                  "show_state": true,
+                  "type": "button",
+                  "entity": "lock.front_door",
+                  "icon_height": "24px",
+                  "tap_action": {
+                    "action": "toggle"
+                  }
+                },
+                {
+                  "show_name": true,
+                  "show_icon": true,
+                  "show_state": true,
+                  "type": "button",
+                  "entity": "lock.kitchen_door",
+                  "icon_height": "24px",
+                  "tap_action": {
+                    "action": "toggle"
+                  }
+                },
+                {
+                  "show_name": true,
+                  "show_icon": true,
+                  "show_state": true,
+                  "type": "button",
+                  "entity": "lock.openable_lock",
+                  "icon_height": "24px",
+                  "tap_action": {
+                    "action": "toggle"
+                  }
+                },
+                {
+                  "show_name": true,
+                  "show_icon": true,
+                  "show_state": true,
+                  "type": "button",
+                  "entity": "lock.poorly_installed_door",
+                  "icon_height": "24px",
+                  "tap_action": {
+                    "action": "toggle"
+                  }
+                },
+                {
+                  "show_name": true,
+                  "show_icon": true,
+                  "show_state": true,
+                  "type": "button",
+                  "entity": "siren.siren_with_all_features",
+                  "icon_height": "24px",
+                  "tap_action": {
+                    "action": "toggle"
+                  }
+                },
+                {
+                  "show_name": true,
+                  "show_icon": true,
+                  "show_state": true,
+                  "type": "button",
+                  "entity": "cover.garage_door",
+                  "icon": "mdi:garage",
+                  "icon_height": "24px",
+                  "tap_action": {
+                    "action": "toggle"
+                  }
+                },
+                {
+                  "type": "heading",
+                  "icon": "mdi:account-group",
+                  "heading": "People",
+                  "heading_style": "title"
+                },
+                {
+                  "type": "tile",
+                  "entity": "person.john_doe",
+                  "name": "John Doe",
+                  "vertical": true,
+                  "show_entity_picture": true,
+                  "features_position": "bottom",
+                  "grid_options": {
+                    "columns": 6,
+                    "rows": "auto"
+                  }
+                },
+                {
+                  "type": "tile",
+                  "entity": "person.jane_doe",
+                  "name": "Jane Doe",
+                  "vertical": true,
+                  "show_entity_picture": true,
+                  "features_position": "bottom",
+                  "grid_options": {
+                    "columns": 6,
+                    "rows": "auto"
+                  }
+                },
+                {
+                  "type": "heading",
+                  "icon": "mdi:music",
+                  "heading": "Media",
+                  "heading_style": "title"
+                },
+                {
+                  "type": "media-control",
+                  "entity": "media_player.bedroom"
+                },
+                {
+                  "type": "media-control",
+                  "entity": "media_player.living_room"
+                }
+              ]
+            },
+            {
+              "type": "grid",
+              "cards": [
+                {
+                  "type": "heading",
+                  "heading": "Lighting",
+                  "heading_style": "title",
+                  "icon": "mdi:floor-lamp"
+                },
+                {
+                  "type": "tile",
+                  "entity": "light.bed_light",
+                  "features_position": "bottom",
+                  "vertical": false,
+                  "features": [
+                    {
+                      "type": "light-brightness"
+                    },
+                    {
+                      "type": "light-color-temp"
+                    }
+                  ]
+                },
+                {
+                  "type": "tile",
+                  "entity": "light.ceiling_lights",
+                  "features_position": "bottom",
+                  "vertical": false,
+                  "features": [
+                    {
+                      "type": "light-brightness"
+                    },
+                    {
+                      "type": "light-color-temp"
+                    }
+                  ]
+                },
+                {
+                  "type": "tile",
+                  "entity": "light.living_room_rgbww_lights",
+                  "features_position": "bottom",
+                  "vertical": false,
+                  "features": [
+                    {
+                      "type": "light-brightness"
+                    }
+                  ]
+                },
+                {
+                  "type": "tile",
+                  "entity": "light.office_rgbw_lights",
+                  "features_position": "bottom",
+                  "vertical": false,
+                  "features": [
+                    {
+                      "type": "light-brightness"
+                    }
+                  ]
+                },
+                {
+                  "type": "tile",
+                  "entity": "light.entrance_color_white_lights",
+                  "features_position": "bottom",
+                  "vertical": false,
+                  "features": [
+                    {
+                      "type": "light-brightness"
+                    }
+                  ]
+                },
+                {
+                  "type": "tile",
+                  "entity": "light.kitchen_lights",
+                  "features_position": "bottom",
+                  "vertical": false,
+                  "features": [
+                    {
+                      "type": "light-brightness"
+                    },
+                    {
+                      "type": "light-color-temp"
+                    }
+                  ]
+                },
+                {
+                  "type": "tile",
+                  "entity": "switch.decorative_lights",
+                  "features_position": "bottom",
+                  "vertical": false
+                },
+                {
+                  "type": "heading",
+                  "icon": "mdi:weather-partly-cloudy",
+                  "heading": "Outdoors",
+                  "heading_style": "title"
                 },
                 {
                   "show_current": true,
@@ -95,111 +368,59 @@
                   "type": "weather-forecast",
                   "entity": "weather.demo_weather_south",
                   "forecast_type": "daily"
-                }
-              ]
-            },
-            {
-              "type": "grid",
-              "cards": [
+                },
                 {
                   "type": "heading",
-                  "heading": "Quick Controls",
-                  "heading_style": "title",
-                  "icon": "mdi:lightning-bolt"
+                  "icon": "mdi:pipe-valve",
+                  "heading": "Valves",
+                  "heading_style": "subtitle",
+                  "grid_options": {
+                    "columns": 6,
+                    "rows": "auto"
+                  }
+                },
+                {
+                  "type": "heading",
+                  "icon": "",
+                  "heading": "Patio",
+                  "heading_style": "subtitle",
+                  "grid_options": {
+                    "columns": 6,
+                    "rows": "auto"
+                  }
                 },
                 {
                   "show_name": true,
                   "show_icon": true,
+                  "show_state": true,
                   "type": "button",
-                  "entity": "light.ceiling_lights",
-                  "name": "Ceiling Lights",
+                  "entity": "valve.front_garden",
                   "icon_height": "24px",
                   "tap_action": {
                     "action": "toggle"
-                  },
-                  "hold_action": {
-                    "action": "none"
-                  },
-                  "show_state": true
+                  }
                 },
                 {
                   "show_name": true,
                   "show_icon": true,
+                  "show_state": true,
                   "type": "button",
-                  "entity": "light.kitchen_lights",
-                  "name": "Kitchen Lights",
-                  "icon_height": "24px",
-                  "tap_action": {
-                    "action": "toggle"
-                  },
-                  "hold_action": {
-                    "action": "none"
-                  },
-                  "show_state": true
-                },
-                {
-                  "show_name": true,
-                  "show_icon": true,
-                  "type": "button",
-                  "entity": "climate.heatpump",
-                  "name": "Heat Pump",
-                  "icon": "mdi:heat-pump",
+                  "entity": "cover.pergola_roof",
+                  "icon": "mdi:awning",
                   "icon_height": "24px",
                   "tap_action": {
                     "action": "more-info"
-                  },
-                  "hold_action": {
-                    "action": "none"
-                  },
-                  "show_state": true
+                  }
                 },
                 {
                   "show_name": true,
                   "show_icon": true,
+                  "show_state": true,
                   "type": "button",
-                  "entity": "vacuum.demo_vacuum_0_ground_floor",
-                  "name": "Vacuum",
+                  "entity": "valve.orchard",
                   "icon_height": "24px",
-                  "hold_action": {
-                    "action": "none"
-                  },
-                  "show_state": true
-                }
-              ]
-            },
-            {
-              "type": "grid",
-              "cards": [
-                {
-                  "type": "heading",
-                  "heading": "Active Entities",
-                  "heading_style": "title",
-                  "icon": "mdi:filter"
-                },
-                {
-                  "type": "entity-filter",
-                  "entities": [
-                    "light.bed_light",
-                    "light.ceiling_lights",
-                    "light.kitchen_lights",
-                    "switch.decorative_lights",
-                    "fan.living_room_fan",
-                    "media_player.living_room",
-                    "climate.heatpump"
-                  ],
-                  "state_filter": [
-                    "on",
-                    "playing",
-                    "heat",
-                    "cool",
-                    "heat_cool",
-                    "auto",
-                    "dry",
-                    "fan_only"
-                  ],
-                  "card": {
-                    "type": "entities",
-                    "title": "Currently Active"
+                  "tap_action": {
+                    "action": "toggle"
                   }
                 }
               ]
@@ -209,19 +430,59 @@
               "cards": [
                 {
                   "type": "heading",
-                  "heading": "Calendar & Tasks",
+                  "heading": "Inputs",
                   "heading_style": "title",
-                  "icon": "mdi:calendar"
+                  "icon": "mdi:form-textbox"
                 },
                 {
-                  "type": "calendar",
+                  "type": "entities",
                   "entities": [
-                    "calendar.calendar_1"
+                    {
+                      "entity": "button.push"
+                    },
+                    {
+                      "entity": "number.large_range"
+                    },
+                    {
+                      "entity": "number.small_range"
+                    },
+                    {
+                      "entity": "number.temperature_setting"
+                    },
+                    {
+                      "entity": "number.volume"
+                    },
+                    {
+                      "entity": "select.speed"
+                    },
+                    {
+                      "entity": "text.text"
+                    },
+                    {
+                      "entity": "date.date"
+                    },
+                    {
+                      "entity": "datetime.date_and_time"
+                    }
                   ]
                 },
                 {
-                  "type": "todo-list",
-                  "entity": "todo.shopping_list"
+                  "type": "heading",
+                  "icon": "mdi:chart-areaspline",
+                  "heading": "Stats",
+                  "heading_style": "title"
+                },
+                {
+                  "chart_type": "line",
+                  "period": "hour",
+                  "type": "statistics-graph",
+                  "entities": [
+                    "sensor.total_energy_kwh",
+                    "sensor.total_energy_mwh"
+                  ],
+                  "days_to_show": 3,
+                  "hide_legend": true,
+                  "logarithmic_scale": false
                 }
               ]
             }
@@ -278,7 +539,7 @@
                   "show_name": true,
                   "show_icon": true,
                   "type": "button",
-                  "entity": "climate.living_room_ac",
+                  "entity": "climate.hvac",
                   "name": "AC",
                   "icon": "mdi:air-conditioner",
                   "icon_height": "24px",
@@ -328,7 +589,7 @@
                   "show_name": true,
                   "show_icon": true,
                   "type": "button",
-                  "entity": "climate.bedroom_ac",
+                  "entity": "climate.ecobee",
                   "name": "AC",
                   "icon": "mdi:air-conditioner",
                   "icon_height": "24px",
@@ -572,12 +833,7 @@
                   "unit": "%",
                   "min": 0,
                   "max": 100,
-                  "needle": true,
-                  "severity": {
-                    "green": 0,
-                    "yellow": 60,
-                    "red": 85
-                  }
+                  "needle": true
                 },
                 {
                   "type": "gauge",
@@ -586,12 +842,7 @@
                   "unit": "%",
                   "min": 0,
                   "max": 100,
-                  "needle": true,
-                  "severity": {
-                    "green": 0,
-                    "yellow": 70,
-                    "red": 90
-                  }
+                  "needle": true
                 },
                 {
                   "type": "gauge",
@@ -600,12 +851,7 @@
                   "unit": "%",
                   "min": 0,
                   "max": 100,
-                  "needle": true,
-                  "severity": {
-                    "green": 0,
-                    "yellow": 70,
-                    "red": 90
-                  }
+                  "needle": true
                 }
               ]
             },
@@ -624,7 +870,8 @@
                   "entities": [
                     {
                       "entity": "sensor.processor_use",
-                      "name": "CPU Usage"
+                      "name": "CPU Usage",
+                      "icon": "mdi:cpu-64-bit"
                     },
                     {
                       "entity": "sensor.processor_temperature",
@@ -632,19 +879,23 @@
                     },
                     {
                       "entity": "sensor.memory_use_percent",
-                      "name": "RAM Usage"
+                      "name": "RAM Usage",
+                      "icon": "mdi:memory"
                     },
                     {
                       "entity": "sensor.memory_free",
-                      "name": "RAM Free"
+                      "name": "RAM Free",
+                      "icon": "mdi:memory"
                     },
                     {
                       "entity": "sensor.disk_use_percent",
-                      "name": "Disk Usage"
+                      "name": "Disk Usage",
+                      "icon": "mdi:harddisk"
                     },
                     {
                       "entity": "sensor.disk_free",
-                      "name": "Disk Free"
+                      "name": "Disk Free",
+                      "icon": "mdi:harddisk"
                     },
                     {
                       "entity": "sensor.last_boot",
