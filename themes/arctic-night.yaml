@@ -470,6 +470,9 @@ Arctic Night:
   card-button-background-closed: var(--ha-card-background, var(--card-background-color))
   card-button-foreground-closed: var(--primary-text-color)
   card-button-icon-closed: var(--state-icon-color)
+  card-button-background-docked: var(--ha-card-background, var(--card-background-color))
+  card-button-foreground-docked: var(--primary-text-color)
+  card-button-icon-docked: var(--state-icon-color)
 
   # Person
   card-person-border-home: var(--catppuccin-teal)
