@@ -6,13 +6,7 @@ A sleek, high-contrast dark theme for Home Assistant featuring frost-blue accent
 
 ## Preview
 
-| Color | Hex | Role |
-|-------|-----|------|
-| Base | `303446` | Card background |
-| Mantle | `292c3c` | Primary background |
-| Crust | `232634` | Sidebar / header |
-| Blue | `8caaee` | Accent / primary |
-| Text | `c6d0f5` | Primary text |
+![Arctic Night Theme Preview](assets/preview.png)
 
 ## Installation
 
@@ -46,27 +40,6 @@ This theme requires [card-mod](https://github.com/thomasloven/lovelace-card-mod)
 ## Color Palette
 
 Based on Catppuccin Frappe with **blue** (`8caaee`) as the primary accent color, giving the UI a frost-blue arctic feel.
-
-### Accent & Semantic Colors
-
-| Purpose | Color | Hex |
-|---------|-------|-----|
-| Primary / Accent | Blue | `8caaee` |
-| Error | Red | `e78284` |
-| Warning | Yellow | `e5c890` |
-| Success | Green | `a6d189` |
-| Info | Blue | `8caaee` |
-
-### Surface Colors
-
-| Layer | Color | Hex |
-|-------|-------|-----|
-| Crust (darkest) | Sidebar, header | `232634` |
-| Mantle | Page background | `292c3c` |
-| Base | Card background | `303446` |
-| Surface 0 | Elevated surfaces | `414559` |
-| Surface 1 | Higher surfaces | `51576d` |
-| Surface 2 | Highest surfaces | `626880` |
 
 ## Credits
 

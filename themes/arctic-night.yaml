@@ -430,9 +430,46 @@ Arctic Night:
   card-button-background-vacuum-error: var(--catppuccin-red)
   card-button-foreground-vacuum-error: var(--catppuccin-crust)
 
+  # Cover
+  card-button-background-cover-open: var(--catppuccin-blue)
+  card-button-foreground-cover-open: var(--catppuccin-crust)
+  card-button-background-cover-opening: var(--catppuccin-teal)
+  card-button-foreground-cover-opening: var(--catppuccin-crust)
+  card-button-background-cover-closing: var(--catppuccin-peach)
+  card-button-foreground-cover-closing: var(--catppuccin-crust)
+  card-button-background-cover-stopped: var(--catppuccin-yellow)
+  card-button-foreground-cover-stopped: var(--catppuccin-crust)
+
+  # Valve
+  card-button-background-valve-opening: var(--catppuccin-teal)
+  card-button-foreground-valve-opening: var(--catppuccin-crust)
+  card-button-background-valve-closing: var(--catppuccin-peach)
+  card-button-foreground-valve-closing: var(--catppuccin-crust)
+
+  # Siren
+  card-button-background-siren-on: var(--catppuccin-red)
+  card-button-foreground-siren-on: var(--catppuccin-crust)
+
   # Generic (any domain)
   card-button-background-on: var(--catppuccin-blue)
   card-button-foreground-on: var(--catppuccin-crust)
+
+  # Inactive states
+  card-button-background-unavailable: var(--ha-card-background, var(--card-background-color))
+  card-button-foreground-unavailable: var(--primary-text-color)
+  card-button-icon-unavailable: var(--state-icon-color)
+  card-button-background-unknown: var(--ha-card-background, var(--card-background-color))
+  card-button-foreground-unknown: var(--primary-text-color)
+  card-button-icon-unknown: var(--state-icon-color)
+  card-button-background-off: var(--ha-card-background, var(--card-background-color))
+  card-button-foreground-off: var(--primary-text-color)
+  card-button-icon-off: var(--state-icon-color)
+  card-button-background-locked: var(--ha-card-background, var(--card-background-color))
+  card-button-foreground-locked: var(--primary-text-color)
+  card-button-icon-locked: var(--state-icon-color)
+  card-button-background-closed: var(--ha-card-background, var(--card-background-color))
+  card-button-foreground-closed: var(--primary-text-color)
+  card-button-icon-closed: var(--state-icon-color)
 
   # Person
   card-person-border-home: var(--catppuccin-teal)
@@ -446,12 +483,12 @@ Arctic Night:
         {% set domain = config.entity.split('.')[0] %}
         {% set state = states(config.entity) %}
         ha-card {
-            background-color: var(--card-button-background-{{ domain }}-{{ state }}, var(--card-button-background-{{ state }}, var(--ha-card-background, var(--card-background-color))));
-            color: var(--card-button-foreground-{{ domain }}-{{ state }}, var(--card-button-foreground-{{ state }}, var(--primary-text-color)));
-            --secondary-text-color: var(--card-button-foreground-{{ domain }}-{{ state }}, var(--card-button-foreground-{{ state }}, var(--ha-color-text-secondary)));
+          background-color: var(--card-button-background-{{ domain }}-{{ state }}, var(--card-button-background-{{ state }}, var(--state-color, var(--ha-card-background, var(--card-background-color)))));
+          color: var(--card-button-foreground-{{ domain }}-{{ state }}, var(--card-button-foreground-{{ state }}, var(--catppuccin-crust)));
+          --secondary-text-color: var(--card-button-foreground-{{ domain }}-{{ state }}, var(--card-button-foreground-{{ state }}, var(--catppuccin-crust)));
         }
         ha-state-icon[data-domain="{{ domain }}"][data-state="{{ state }}"] {
-          --state-color: var(--card-button-foreground-{{ domain }}-{{ state }}, var(--card-button-foreground-{{ state }}, var(--state-icon-color))) !important;
+          --state-color: var(--card-button-icon-{{ domain }}-{{ state }}, var(--card-button-icon-{{ state }}, var(--card-button-foreground-{{ domain }}-{{ state }}, var(--card-button-foreground-{{ state }}, var(--catppuccin-crust)))));
         }
       {% endif %}
       .card-header {

@@ -22,6 +22,7 @@ config/.storage/homeassistant.exposed_entities
 config/.storage/http
 config/.storage/http.auth
 config/.storage/repairs.issue_registry
+config/.storage/trace.saved_traces
 
 # Downloaded at runtime by compose entrypoint
 config/www/card-mod.js
